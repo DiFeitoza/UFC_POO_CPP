@@ -1,5 +1,8 @@
 ﻿# UFC_POO_CPP
 Repositório dedicado às atividades da disciplina de programação orientada a objeto do curso de Engenharia de Software da UFC (2018.2).
+Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/poo_2018_2).
+
+![Foto de Perfil, Eu s2 UFC](https://photos.app.goo.gl/mAVQFBKdRJPmjZq79)
 
 # Relatórios
 ## Atividade 01 - Carro
