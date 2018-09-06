@@ -59,12 +59,6 @@ public:
         fones.push_back(fone);
     }
 
-    /* bool update(Contato cont){
-        in >> cont.nome;
-
-        return true;
-    } */
-
     bool rm(string foneId){
         for(int i=0; i<(int)fones.size(); i++)
             if(fones[i].label == foneId){
@@ -94,30 +88,25 @@ struct Controller{
         in >> op;
 
         if(op == "help"){
-            out << "show; init _nome; add _id _fone[.()0123456789]; end";
+            out << "show; init _nome; add _id _fone; end";
         }
-        else if(op == "init" || op == "update"){
+        else if(op == "init"){
             string nome="vazio";
             in >> nome;
             cont = Contato(nome);
-            if(op == "update")
-                in << "add";
-            else
-                out << "success";
+            out << "success";
         }
         else if(op == "show"){
             out << cont.toString();
         }
         else if(op == "add"){
             string label, fone;
-
-            while(in >> label && in >> fone){
-                if(cont.validator(fone)){
-                    cont.add(Fone(label, fone));
-                    out << label << ":success ";
-                } else
-                    out << label << ":invalid ";
-            }
+            in >> label >> fone;
+            if(cont.validator(fone)){
+                cont.add(Fone(label, fone));
+                out << "success";
+            } else
+                out << "fail: caracateres permitidos '.()0123456789'";
         }
         else if(op == "rm"){
             string label;
@@ -145,12 +134,12 @@ struct Controller{
             }
             arquivo.close();
         } else
-            cout << "impossivel abrir o arquivo!";
+            cout << "impossível abrir o arquivo!";
     }
 };
 
 int main(){
-    setlocale(LC_ALL,"Portuguese");
+    setlocale(LC_ALL, "Portuguese");    
     Controller controller;
     controller.exec();
 

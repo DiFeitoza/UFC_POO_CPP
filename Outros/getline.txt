@@ -1,0 +1,21 @@
+main(){
+    string line = "um: do:is tres: qua:tro cinco";
+    // getline(cin, line); Usuário digita a linha
+
+    stringstream ss(line);
+    string palavra;
+
+    while(ss >> palavra){
+        for(char letra : palavra){
+            if( letra == ':'){
+                ss >> palavra;
+                cout << palavra << endl;
+            }
+        }
+    }  
+
+    // cout << fixed << setprecision(5) << 2334.4645547;
+    // ss >> "consome o fluxo", getline também.
+
+    return 0;
+}

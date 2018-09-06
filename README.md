@@ -34,3 +34,18 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 
 - **Quanto tempo levou pra fazer a atividade**:
   - Entre 8 e 10 horas, pois tive alguns problemas com a IDE, Git, lidar com laços usando o 'nullptr'.
+
+## Atividade 03 - Contato Telefônico
+**Resumo e Observações**: 1º update - adaptando o código. Fiz alterações para que o projeto leia os testes direto do arquivo "contatos.txt" em vez de ter que digitá-los ou colá-los no terminal. Adicionei o aviso de erro na função usada para remover um label, caso ele não exista.
+
+- **Com quem e como você fez**:
+  - Fiz só e com base na estrutura feita em sala.
+
+- **O que aprendeu e sabe fazer**:
+  - Estou aprendendo a usar o sistema de controlador e shell em vez de jogar tudo na main, permitindo, assim, fazer uso da biblioteca fstream e com ela a leitura dos testes a partir de um arquivo txt.
+
+- **O que tem dificuldade ainda**:
+  - Começar o código do zero, sem um modelo base e ainda assim conseguir seguir a linha de raciocínio e estrutura desejada. Apesar disso, tenho conhecido e aprendido várias novidades sobre a linguagem.
+
+- **Quanto tempo levou pra fazer a atividade**:
+  - Até então, em torno de 5 horas.
