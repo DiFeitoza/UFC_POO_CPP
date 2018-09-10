@@ -30,7 +30,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Entre 8 e 10 horas, pois tive alguns problemas com a IDE, Git, lidar com laços usando o 'nullptr'.
 
 ## Atividade 03 - Contato Telefônico
-**Resumo e Observações**: 1º update - adaptando o código. Fiz alterações para que o projeto leia os testes direto do arquivo "contatos.txt" em vez de ter que digitá-los ou colá-los no terminal. Adicionei o aviso de erro na função usada para remover um label, caso ele não exista.
+**Resumo e Observações**: Fiz alterações para que o projeto leia os testes direto do arquivo "contatos.txt" em vez de ter que digitá-los ou colá-los no terminal. Caso queira testar manualmente, basta adicionar "manual" em uma das linhas do "contatos.txt".
 
 - **Com quem e como você fez**:
   - Fiz só e com base na estrutura feita em sala.
@@ -42,4 +42,4 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Começar o código do zero, sem um modelo base e ainda assim conseguir seguir a linha de raciocínio e estrutura desejada. Apesar disso, tenho conhecido e aprendido várias novidades sobre a linguagem.
 
 - **Quanto tempo levou pra fazer a atividade**:
-  - Até então, em torno de 5 horas.
+  - Em torno de 7 horas.
