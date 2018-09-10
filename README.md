@@ -34,12 +34,9 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 
 - **Com quem e como você fez**:
   - Fiz só e com base na estrutura feita em sala.
-
 - **O que aprendeu e sabe fazer**:
   - Estou aprendendo a usar o sistema de controlador e shell em vez de jogar tudo na main, permitindo, assim, fazer uso da biblioteca fstream e com ela a leitura dos testes a partir de um arquivo txt.
-
 - **O que tem dificuldade ainda**:
   - Começar o código do zero, sem um modelo base e ainda assim conseguir seguir a linha de raciocínio e estrutura desejada. Apesar disso, tenho conhecido e aprendido várias novidades sobre a linguagem.
-
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 7 horas.
