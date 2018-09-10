@@ -1,13 +1,16 @@
+help
+init
 show
 init Diego
 show
-add update (85).01234
+add oi (85).01234
 add tim (88).56789
-add oi (14).abc
+add vivo (14).abcd
 show
-update Paulo 
+update Ogeid oi (85).01 tim (88).02 vivo (14).ab
+show
+rm vivo
 rm tim
 rm oi
-rm vivo
 show
 end

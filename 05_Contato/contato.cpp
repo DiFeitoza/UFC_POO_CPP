@@ -3,7 +3,7 @@
 #include <sstream> // fluxo de textos
 #include <fstream>
 #include <iomanip> // manipulador de 'io' (e/s de dados) setprecision(#) fixed
-#include <clocale> // acentuação
+#include <clocale> // acentuação ptbr
 
 using namespace std;
 
@@ -51,19 +51,13 @@ public:
     }
 
     void add(Fone fone){
-        for(auto telefone : fones)
+        /*for(auto telefone : fones)
             if(telefone.label == fone.label){
                 cout << "failure: label duplicado";
                 return;
-            }
+            } */
         fones.push_back(fone);
     }
-
-    /* bool update(Contato cont){
-        in >> cont.nome;
-
-        return true;
-    } */
 
     bool rm(string foneId){
         for(int i=0; i<(int)fones.size(); i++)
@@ -94,16 +88,29 @@ struct Controller{
         in >> op;
 
         if(op == "help"){
-            out << "show; init _nome; add _id _fone[.()0123456789]; end";
+            out << "show: exibe os dados do contato atual \n  "
+                << "init: _nome \n  "
+                << "add: _id _fone[.()0123456789] \n  "
+                << "end: sair da execucao atual \n  "
+                << "*Dica: para execucao manual basta adicionar 'manual' em uma das linha do contao.txt";
         }
-        else if(op == "init" || op == "update"){
-            string nome="vazio";
+        else if(op == "init"){
+            string nome = "vazio";
             in >> nome;
             cont = Contato(nome);
-            if(op == "update")
-                in << "add";
-            else
-                out << "success";
+            out << "success";
+        }
+        else if(op == "update"){
+            string nome, label, fone;
+            in >> nome;
+            cont = Contato(nome);
+            while(in >> label && in >> fone){
+                if(cont.validator(fone)){
+                    cont.add(Fone(label, fone));
+                    out << label << ":success ";
+                } else
+                    out << label << ":invalid ";
+            }
         }
         else if(op == "show"){
             out << cont.toString();
@@ -134,11 +141,17 @@ struct Controller{
     void exec(){
         ifstream arquivo ("contato.txt");
         string line;
-    
+
         if(arquivo.is_open()){
             while(!arquivo.eof()){
                 getline(arquivo, line);
-                if(line == "end")
+                if(line == "manual"){
+                    while(line != "end"){
+                        getline(cin, line);
+                        cout << "  " << shell(line) << endl;
+                    }
+                }
+                else if(line == "end")
                     break;
                 cout << line << endl;
                 cout << "  " << shell(line) << endl;

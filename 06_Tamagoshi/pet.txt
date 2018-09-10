@@ -1,0 +1,13 @@
+show
+init Diego
+show
+add update (85).01234
+add tim (88).56789
+add oi (14).abc
+show
+update Paulo 
+rm tim
+rm oi
+rm vivo
+show
+end
