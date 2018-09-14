@@ -12,8 +12,7 @@ struct Fone{
     string fone;
 
     Fone(string label = "", string fone = ""):
-        label(label), fone(fone)
-    {
+        label(label), fone(fone){
     }
 
     string toString(){

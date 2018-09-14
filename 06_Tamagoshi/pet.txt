@@ -1,13 +1,19 @@
+help
+rename Jujuba
 show
-init Diego
+sleep
+play
+play
 show
-add update (85).01234
-add tim (88).56789
-add oi (14).abc
+sleep
 show
-update Paulo 
-rm tim
-rm oi
-rm vivo
+eat
+eat
 show
+shower
+shower
+show
+play
+eat
+shower
 end

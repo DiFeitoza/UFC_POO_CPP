@@ -1,18 +1,14 @@
 #include <iostream>
+#include <clocale>
 #include "pet.hpp"
+#include "controller.hpp"
 
 using namespace std;
 
 int main(){
-    Pet p("Bixanuh", 15, 10, 300);
-    p.play();
-    cout << p.toString() << endl;
-    p.play();
-    cout << p.toString() << endl;
-    p.play();
-    cout << p.toString() << endl;
-    while(true)
-        p.play();
+    setlocale(LC_ALL,"Portuguese");
+    Controller controller;
+    controller.exec();
 
     return 0;
 }
