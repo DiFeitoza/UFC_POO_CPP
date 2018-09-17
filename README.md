@@ -40,3 +40,15 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Começar o código do zero, sem um modelo base e ainda assim conseguir seguir a linha de raciocínio e estrutura desejada. Apesar disso, tenho conhecido e aprendido várias novidades sobre a linguagem.
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 7 horas.
+
+## Atividade 04 - Pet Virtual (Tamagotchi)
+**Resumo e Observações**: Código separado em módulos cpp e hpp por classe com ajuda do professor.
+
+- **Com quem e como você fez**:
+  - Fiz só e com base na estrutura feita em sala.
+- **O que aprendeu e sabe fazer**:
+  - Estou me familiarizando com a divisão do arquivo em módulos, melhorei minha sintaxe de escrita e estou mais familiarizado com a estrutura e a ferramenta de desenvolvimento.
+- **O que tem dificuldade ainda**:
+  - Implementar os métodos get e set. Estruturar o código separando o que deve ser público do que deve ser privado.
+- **Quanto tempo levou pra fazer a atividade**:
+  - Em torno de 10 horas.
