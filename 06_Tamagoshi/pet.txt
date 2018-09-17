@@ -23,5 +23,4 @@ show
 init 6 6 6
 rename Tinhoso
 show
-manual
 end

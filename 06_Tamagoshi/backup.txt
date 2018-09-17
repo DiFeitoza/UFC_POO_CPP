@@ -2,10 +2,16 @@
 #include <fstream>
 #include <sstream>
 #include <clocale> // acentuação ptbr
+<<<<<<< HEAD
+=======
+#include "pet.hpp"
+#include "controller.hpp"
+>>>>>>> 634ec0a248ceb09adb0b85c626619d2d43078528
 using namespace std;
 
 class Pet{
     public:
+<<<<<<< HEAD
         Pet(string nome, int energyMax, int hungryMax, int cleanMax):
         nome(nome), energyMax(energyMax), hungryMax(hungryMax), cleanMax(cleanMax),
         energy(energyMax), hungry(hungryMax), clean(cleanMax)
@@ -96,6 +102,86 @@ class Pet{
         int age; //{0}
         int diamond; //{0}
         bool alive {true};
+=======
+    string nome;
+    int energyMax, hungryMax, cleanMax, ageMax = 999, diamondMax = 999;
+    int energy, hungry, clean;   
+    int age; //{0}
+    int diamond; //{0}
+    bool alive {true};
+
+    Pet(string nome, int energyMax, int hungryMax, int cleanMax):
+    nome(nome), energyMax(energyMax), hungryMax(hungryMax), cleanMax(cleanMax),
+    energy(energyMax), hungry(hungryMax), clean(cleanMax)
+    {
+    this->age = 0;
+    this->diamond = 0;
+    }
+
+    void status(int &status, int &statusMax, int value){
+        if(status + value <= 0){
+            this->alive = false;
+            status = 0;
+        }
+        else if(status + value > statusMax)
+            status = statusMax;
+        else
+            status = status + value;
+    }
+
+    bool testAlive(){
+        if(alive)
+            return true;
+        cout << "  fail: " << this->nome << " esta morto!";
+        return false;
+    }
+
+    bool play(){
+        if(!testAlive()) return false;
+        status(energy, energyMax, -2);
+        status(hungry, hungryMax, -1);
+        status(age, ageMax, +1);
+        status(diamond, diamondMax, +1);
+        return true;
+    }
+
+    bool eat(){
+        if(!testAlive()) return false;
+        status(energy, energyMax, -1);
+        status(hungry, hungryMax, +4);
+        status(clean, cleanMax, -2);
+        status(age, ageMax, +1);
+        return true;
+    }
+
+    bool shower(){
+        if(!testAlive()) return false;
+        status(energy, energyMax, -3);
+        status(hungry, hungryMax, -1);
+        status(age, ageMax, +2);
+        status(clean, cleanMax, cleanMax);
+        return true;
+    }
+
+    bool sleep(){
+        if(!testAlive()) return false;
+        // if dif > 5
+        status(hungry, hungryMax, -1);
+        status(age, ageMax, +1);
+        status(energy, energyMax, energyMax);
+        return true;
+    }
+
+    string toString(){
+        stringstream ss;
+        ss << "N:" << nome << ", " 
+           << "E:" << energy << "/" << energyMax << ", "
+           << "H:" << hungry << "/" << hungryMax << ", "
+           << "C:" << clean  << "/" << cleanMax  << ", "
+           << "D:" << diamond << ", A:" << age;
+        return ss.str();
+    }
+>>>>>>> 634ec0a248ceb09adb0b85c626619d2d43078528
 };
 
 struct Controller{
@@ -116,9 +202,13 @@ struct Controller{
             out << pet.toString();
         }
         else if(op == "rename"){
+<<<<<<< HEAD
             string nome;
             in >> nome;
             //pet.name(nome);
+=======
+            in >> pet.nome;
+>>>>>>> 634ec0a248ceb09adb0b85c626619d2d43078528
         }
         else if(op == "eat"){
             if(pet.eat())
