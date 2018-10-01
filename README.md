@@ -52,3 +52,15 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Implementar os métodos get e set. Estruturar o código separando o que deve ser público do que deve ser privado.
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 10 horas.
+
+## Atividade 05 - Agiota
+**Resumo e Observações**: Em edição, não concluído.
+
+- **Com quem e como você fez**:
+  - Fiz só, com base nos conhecimentos adquiridos em sala e no tira-dúvidas pelo hangout quando tive dificuldades.
+- **O que aprendeu e sabe fazer**:
+  - Estou aprendendo melhor a relacionar as classes e utilizar os construtores.
+- **O que tem dificuldade ainda**:
+  - Implementar os métodos get e set. Estruturar o código separando o que deve ser público do que deve ser privado.
+- **Quanto tempo levou pra fazer a atividade**:
+  - Em torno de 15 horas.
