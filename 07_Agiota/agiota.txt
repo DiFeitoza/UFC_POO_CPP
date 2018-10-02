@@ -1,22 +1,4 @@
-init 500
-show tr
-show cli
-add cli maria maria silva
-add cli josue josue matos
-add cli maria ana maria silva
-add tr maria -300
-add tr josue -50
-add tr maria -100
-add tr bruno -30
-add tr josue -400
-show maria
-show bruno
-show josue
-show tr
-show cli
-manual
-help
-init 500
+init 1000
 add cli maria maria silva
 add cli josue josue matos
 add cli maria ana maria silva
@@ -33,6 +15,7 @@ add tr maria -350
 show tr
 add tr josue 1
 add tr maria 10
+show tr
 show josue
 matar josue
 show tr

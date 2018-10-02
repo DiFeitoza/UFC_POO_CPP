@@ -42,32 +42,58 @@ public:
     Sistema init(float value){
         return Sistema(value);
     }
-    void add_cli(string id, string nome){
-        clientes.push_back(Cliente(id, nome));
+    bool validaTransacao(string cid, float value){
+        if(this->value + value <= 0)
+            throw "fail: fundos insuficientes";
+        for(auto cli : clientes){
+            if(cli.id == cid && cli.saldo + value > 0)
+                throw "fail: valor maior que a divida";
+        }
+        return true;
     }
-    void add_tr(string myid, float value){
-        for(Cliente &cli : clientes){
-            if(cli.id == myid){
-                cli.saldo += value;
-                transacoes.push_back(Transacao(cont_id_tr, cli.id, value));
-                cont_id_tr++;
+    bool validaCliente(string cid){
+        for(Cliente cli : clientes){
+            if(cid == cli.id){
+                return true;
             }
+        }
+        return false;
+    }
+    void add_cli(string cid, string nome){
+        if(validaCliente(cid))
+            throw "fail: cliente " + cid + " ja existe";
+        clientes.push_back(Cliente(cid, nome));
+    }
+    void add_tr(string cid, float value){            
+        if(validaCliente(cid)){
+            for(Cliente &cli : clientes){
+                if(cli.id == cid){
+                    cli.saldo += value;
+                    this->value += value;
+                    transacoes.push_back(Transacao(cont_id_tr, cli.id, value));
+                    cont_id_tr++;
+                    cout << "  done";
+                    break;
+                }
+            }
+        } else {
+            throw "fail: cliente " + cid + " nao existe";
         }
     }
     void show_cli(){
         for(Cliente cli : clientes){
-            cout << "[cid:" + cli.id + "] " + cli.nome + ":" + to_string(cli.saldo) + "\n";
+            cout << "  [cid:" + cli.id + "] " + cli.nome + ":" + to_string(cli.saldo) + "\n";
         }         
     }
     void show_tr(){
         for(Transacao tr : transacoes){
-            cout << "[id:" + to_string(tr.id_tr) + "]" + " " + tr.id_cli + ":" + to_string(tr.value) + "\n";
+            cout << "  [id:" + to_string(tr.id_tr) + "]" + " " + tr.id_cli + ":" + to_string(tr.value) + "\n";
         }        
     }
-    void show_id(string myid){
-        for(Cliente cli : clientes){
-            if(cli.id == myid){
-                cout << cli.nome + ":" + to_string(cli.saldo) << endl;
+    void show_id(string cid){
+        for(Transacao tr : transacoes){
+            if(tr.id_cli == cid){
+                cout << "  [id:" + to_string(tr.id_tr) + "]" + " " + tr.id_cli + ":" + to_string(tr.value) + "\n";
             }
         }
     }
@@ -91,7 +117,31 @@ public:
         this->psis = psis;
     }
     
-    void matar(){
+    void matar(string cid){
+        bool b = false;
+        int cont = 0;
+        for(auto &cli: psis->clientes){
+            if(cli.id == cid){
+                psis->clientes.erase(psis->clientes.begin()+cont);
+                cont = 0;
+                b = true;
+            }
+            if(b) break;
+            cont++;
+        }
+        for(int i=psis->transacoes.size();i>=0;i--){
+            if(psis->transacoes[i].id_cli == cid){
+                psis->transacoes.erase(psis->transacoes.begin()+i);
+            }
+        }
+        /*for(Transacao &tr : psis->transacoes){
+            if(tr.id_cli == cid){
+                psis->transacoes.erase(psis->transacoes.begin()+cont);
+                cout << cont << ":value do cont no erase";
+                cont--;
+            }
+            cont++;
+        } */
     }
     void toString(){
         cout << "nome: " + nome + " | saldo: " + to_string(psis->value);
@@ -114,43 +164,54 @@ public:
 
         in >> op;
 
-        if(op == "show"){
-            in >> op;
-            if(op == "tr"){
-                mainSis.show_tr();
+        try{
+            if(op == "show"){
+                in >> op;
+                if(op == "tr"){
+                    mainSis.show_tr();
+                }
+                else if(op == "cli"){
+                    mainSis.show_cli();
+                }
+                else{
+                    mainSis.show_id(op);
+                }
             }
-            else if(op == "cli"){
-                mainSis.show_cli();
+            else if(op == "init"){
+                float initValue;
+                in >> initValue;
+                mainSis = mainSis.init(initValue);
             }
-            else{
-                mainSis.show_id(op);
+            else if(op == "add"){
+                in >> op;
+                if(op == "cli"){
+                    string id, nome;
+                    in >> id;
+                    getline(in, nome);
+                    mainSis.add_cli(id, nome);
+                }
+                else if(op == "tr"){
+                    string cid;
+                    float value;
+                    in >> cid;
+                    in >> value;
+                    if(mainSis.validaTransacao(cid, value))
+                        mainSis.add_tr(cid, value);
+                }
             }
-        }
-        else if(op == "init"){
-            float initValue;
-            in >> initValue;
-            mainSis = mainSis.init(initValue);
-        }
-        else if(op == "add"){
-            in >> op;
-            if(op == "cli"){
-                string id, nome;
-                in >> id;
-                getline(in, nome);
-                mainSis.add_cli(id, nome);
+            else if(op == "matar"){
+                in >> op;
+                mainAge.matar(op);
             }
-            else if(op == "tr"){
-                string id;
-                float value;
-                in >> id;
-                in >> value;
-                mainSis.add_tr(id, value);
+            else if(op == "help"){
+                out << "";
             }
-        }
-        else if(op == "matar"){
-        }
-        else if(op == "help"){
-            out << "";
+        } catch(char const* e1){
+            out << e1;
+        } catch(string e2){
+            out << e2;
+        } catch(...){
+            out << "fail: ocorreu uma exceção";
         }
 
         return out.str();
