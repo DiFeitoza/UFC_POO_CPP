@@ -54,7 +54,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Em torno de 10 horas.
 
 ## Atividade 05 - Agiota
-**Resumo e Observações**: Em edição, não concluído.
+**Resumo e Observações**: concluído fora do prazo inicial, porém antes da solução e sem aplicar as facilidades aprendidas nas aulas seguintes.
 
 - **Com quem e como você fez**:
   - Fiz só, com base nos conhecimentos adquiridos em sala e no tira-dúvidas pelo hangout quando tive dificuldades.
