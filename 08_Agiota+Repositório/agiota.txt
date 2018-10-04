@@ -1,0 +1,24 @@
+init 1000
+add cli maria maria silva
+add cli josue josue matos
+add cli maria ana maria silva
+show cli
+add tr maria -300
+add tr josue -50
+add tr maria -100
+add tr bruno -30
+add tr josue -400
+show tr
+show maria
+add tr maria -1000
+add tr maria -350
+show tr
+add tr josue 1
+add tr maria 10
+show tr
+show josue
+matar josue
+show tr
+show cli
+manual
+end

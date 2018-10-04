@@ -1,6 +1,7 @@
 #include<iostream>
 #include<sstream>
 #include<fstream>
+#include<algorithm>
 #include<vector>
 
 using namespace std;
@@ -52,8 +53,9 @@ public:
     }
     bool validaCliente(string cid){
         for(Cliente cli : clientes){
-            if(cid == cli.id)
+            if(cid == cli.id){
                 return true;
+            }
         }
         return false;
     }
@@ -73,29 +75,34 @@ public:
                     break;
                 }
             }
-        } else
+        } else {
             throw "fail: cliente " + cid + " nao existe\n";
+        }
     }
     void show_cli(){
         for(Cliente cli : clientes){
-            cout << "  [cid:" + cli.id + "] " + cli.nome + ":"
-            + to_string((int)cli.saldo) + "\n";
+            cout << "  [cid:" + cli.id + "] " + cli.nome + ":" + to_string((int)cli.saldo) + "\n";
         }         
     }
     void show_tr(){
         for(Transacao tr : transacoes){
-            cout << "  [id:" + to_string(tr.id_tr) + "]" + " "
-            + tr.id_cli + ":" + to_string((int)tr.value) + "\n";
+            cout << "  [id:" + to_string(tr.id_tr) + "]" + " " + tr.id_cli + ":" + to_string((int)tr.value) + "\n";
         }        
     }
     void show_id(string cid){
         for(Transacao tr : transacoes){
             if(tr.id_cli == cid){
-                cout << "  [id:" + to_string(tr.id_tr) + "]" + " "
-                + tr.id_cli + ":" + to_string((int)tr.value) + "\n";
+                cout << "  [id:" + to_string(tr.id_tr) + "]" + " " + tr.id_cli + ":" + to_string((int)tr.value) + "\n";
             }
         }
     }
+    
+    /* template<typename T>
+    T toString(T coisa){
+        stringstream ss;
+        ss << coisa;
+        return ss;
+    } */
 };
 
 
@@ -196,20 +203,14 @@ public:
                 mainAge.matar(op);
             }
             else if(op == "help"){
-                out << "show cli: exibe lista de clientes\n"
-                "  show tr: exibe lista de transacoes\n"
-                "  show [clienteid]: exibe transacoes do cliente pelo id\n"
-                "  init [(int)valor]: inicia um novo sistema\n"
-                "  add cli [id][nome]: adiciona um cliente no sistema (id limitado a uma 'palavra')\n"
-                "  add tr [clienteid][(int)valor]: registra uma transacao para o cliente\n"
-                "  matar [clienteid]: permite eliminar um cliente e seus dados do sistema";
+                out << "";
             }
         } catch(char const* e){
             out << e;
         } catch(string e){
             out << e;
         } catch(...){
-            out << "fail: ocorreu uma exceção";
+            out << "fail: ocorreu uma exceção\n";
         }
 
         return out.str();
