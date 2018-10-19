@@ -64,3 +64,15 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Implementar os métodos get e set. Estruturar o código separando o que deve ser público do que deve ser privado.
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 15 horas.
+
+## Atividade 06 - Repositório I
+**Resumo e Observações**: Dessa vez eu digitei todo o código, não utilizei o recurso "copiar/colar". Realmente fluiu melhor.
+
+- **Com quem e como você fez**:
+  - Fiz só, com base nos conhecimentos adquiridos em sala e em pesquisas pela internet.
+- **O que aprendeu e sabe fazer**:
+  - Cheguei a uma solução interessante de como mudar o comportamento de uma função genérica (usando typename) em função de quem a chama. Fixei melhor os conteúdos relacionados a contrutores e a tratamentos de exceções.
+- **O que tem dificuldade ainda**:
+  - Implementar os métodos get e set. Estruturar o código separando o que deve ser público do que deve ser privado.
+- **Quanto tempo levou pra fazer a atividade**:
+  - Em torno de 8 horas.
