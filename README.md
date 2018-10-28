@@ -76,3 +76,51 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Implementar os métodos get e set. Estruturar o código separando o que deve ser público do que deve ser privado.
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 8 horas.
+
+## Atividade 07 - Agiota+Repositorio
+**Resumo e Observações**: Única dificuldade foi em relação às chaves para transações, pois precisavam manter o vínculo com o mesmo cliente e ao mesmo tempo ser única. Depois percebi que poderia usar a string do id da transação para fazer isso.
+
+- **Com quem e como você fez**:
+  - Fiz só, com base nos conhecimentos adquiridos em sala e em pesquisas pela internet. Reaproveitei a estrutura do Repositório I.
+- **O que aprendeu e sabe fazer**:
+  - Apliquei os conhecimentos do Repositório I, percebi que quando eu tiver que usar várias chaves para o mesmo "cliente" posso usar um inteiro e sua string.
+- **O que tem dificuldade ainda**:
+  - Nesse assunto está tudo bem.
+- **Quanto tempo levou pra fazer a atividade**:
+  - Por volta de 4 horas.
+
+## Atividade 08 - Serviço de Anotações
+**Resumo e Observações**: Iniciando...
+
+- **Com quem e como você fez**:
+  - 
+- **O que aprendeu e sabe fazer**:
+  - 
+- **O que tem dificuldade ainda**:
+  - 
+- **Quanto tempo levou pra fazer a atividade**:
+  - 
+
+## Atividade 09 - Cálculo de Salário
+**Resumo e Observações**: Iniciando...
+
+- **Com quem e como você fez**:
+  - 
+- **O que aprendeu e sabe fazer**:
+  - 
+- **O que tem dificuldade ainda**:
+  - 
+- **Quanto tempo levou pra fazer a atividade**:
+  - 
+
+## Atividade 10 - Embarque no Trem 
+**Resumo e Observações**: Fiz toda a implementação que faltava. Criei a classe para vagões de carga, o desembarque, os destrutores, toString da classe. Falta fazer a classe de movimentação e registro.
+
+- **Com quem e como você fez**:
+  - Fiz só, com base nos conhecimentos adquiridos em sala e em pesquisas pela internet.
+- **O que aprendeu e sabe fazer**:
+  - Entendi melhor como funcionam os destrutores! também como fazer isso usando herança e métodos virtuais.
+- **O que tem dificuldade ainda**:
+  - Não comecei a parte de movimentação e registro, talvez tenha dificuldade por ser novidade.
+- **Quanto tempo levou pra fazer a atividade**:
+  - Em torno de 4 horas.

@@ -1,0 +1,47 @@
+init 3
+nwvp 3
+nwvc 1000
+nwvp 2
+nwvp 4
+addp davi
+addp davi
+addp rui
+addp rufus
+addp ioda
+addp grievous
+addp tim_maia
+addp zeca
+manual
+end
+# addp _idPass #tenta embarcar uma pessoa
+# addc _idCarga _peso #tenta embarcar uma carga
+
+addp goku
+la
+  Trem [ goku - ]( _350.0 )[ - - ]
+addp kate
+addp sara
+addp goku
+  fail: goku já está no trem
+la
+  Trem [ goku kate ]( _350.0 )[ sara - ]
+addp tina
+addp james
+  fail: trem lotado
+la
+  Trem [ goku kate ]( _350.0 )[ sara james ]
+addc xilitos 200.0
+la
+  Trem [ goku kate ]( xilitos:200.0 _150.0 )[ sara james ]
+addc pipoca 100.0
+la
+  Trem [ goku kate ]( xilitos:200.0 pipoca:100.0 _50.0 )[ sara james ]
+addc cebolitos 100.0
+  fail: trem lotado
+sair kate
+sair sara
+sair rufus
+  fail: rufus nao esta no trem
+sair xilitos
+la
+  Trem [ goku - ]( pipoca:100.0 _50.0 )[ james ]

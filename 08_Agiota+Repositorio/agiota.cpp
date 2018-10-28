@@ -2,6 +2,7 @@
 #include<sstream>
 #include<fstream>
 #include<vector>
+#include<map>
 
 using namespace std;
 
@@ -16,23 +17,71 @@ public:
         id(id), nome(nome), saldo(saldo), alive(true){}
 };
 
-
 class Transacao{
 public:
     int id_tr;
     string id_cli;
     float value;
 
-    Transacao(int idt, string idc, float val):
+    Transacao(int idt = 0, string idc = "", float val = 0.0):
         id_tr(idt), id_cli(idc), value(val){}
 };
 
+template<typename T>
+class Repositorio{
+    map<string, T> data;
+public:
+    bool exists(string key){
+        return data.find(key) != data.end();
+    }
+    bool add(string key, T elem){
+        if(!exists(key)){
+            data[key] = elem;
+            return true;
+        }
+        return false;
+    }
+    bool rem(string key){
+        if(exists(key)){
+            data.erase(key);
+            return true;
+        }
+        return false;
+    }
+    T& getT(string key, string str = ""){
+        auto item = data.find(key);
+        if(item != data.end())
+            return item->second;
+        throw "" + str + " " + key + " nao existe";
+    }
+    vector<T> getValues(){
+        vector<T> vecT;
+        for(auto& par : data)
+            vecT.push_back(par.second);
+        return vecT;
+    }
+    vector<string> getKeys(){
+        vector<string> vecK;
+        for(auto& par : data)
+            vecK.push_back(par.first);
+        return vecK;
+    }
+    static void toString(T t){
+        stringstream ss;
+        ss << t.id << ":";
+        if(t.curso){
+            ss << t.curso << ":";
+        }
+        ss << t.nome;
+        cout << ss.str();
+    }
+};
 
 class Sistema{
 public:
     float value;
-    vector<Cliente> clientes;
-    vector<Transacao> transacoes;
+    Repositorio<Cliente> repCli;
+    Repositorio<Transacao> repTra;
     int cont_id_tr = 0;
 
     Sistema(float value):
@@ -41,55 +90,42 @@ public:
     Sistema init(float value){
         return Sistema(value);
     }
+
     bool validaTransacao(string cid, float value){
         if(this->value + value <= 0)
             throw "fail: fundos insuficientes\n";
-        for(auto cli : clientes){
-            if(cli.id == cid && cli.saldo + value > 0)
-                throw "fail: valor maior que a divida\n";
-        }
+        if(repCli.getT(cid).saldo + value > 0)
+            throw "fail: valor maior que a divida\n";
         return true;
     }
-    bool validaCliente(string cid){
-        for(Cliente cli : clientes){
-            if(cid == cli.id)
-                return true;
-        }
-        return false;
-    }
     void add_cli(string cid, string nome){
-        if(validaCliente(cid))
+        if(repCli.exists(cid))
             throw "fail: cliente " + cid + " ja existe\n";
-        clientes.push_back(Cliente(cid, nome));
+        repCli.add(cid, Cliente(cid, nome));
     }
     void add_tr(string cid, float value){            
-        if(validaCliente(cid)){
-            for(Cliente &cli : clientes){
-                if(cli.id == cid){
-                    cli.saldo += value;
-                    this->value += value;
-                    transacoes.push_back(Transacao(cont_id_tr, cli.id, value));
-                    cont_id_tr++;
-                    break;
-                }
-            }
+        if(repCli.exists(cid)){
+            repCli.getT(cid).saldo += value;
+            this->value += value;
+            repTra.add(to_string(cont_id_tr), Transacao(cont_id_tr, cid, value));
+            cont_id_tr++;
         } else
             throw "fail: cliente " + cid + " nao existe\n";
     }
     void show_cli(){
-        for(Cliente cli : clientes){
+        for(Cliente cli : repCli.getValues()){
             cout << "  [cid:" + cli.id + "] " + cli.nome + ":"
             + to_string((int)cli.saldo) + "\n";
         }         
     }
     void show_tr(){
-        for(Transacao tr : transacoes){
+        for(Transacao tr : repTra.getValues()){
             cout << "  [id:" + to_string(tr.id_tr) + "]" + " "
             + tr.id_cli + ":" + to_string((int)tr.value) + "\n";
         }        
     }
     void show_id(string cid){
-        for(Transacao tr : transacoes){
+        for(Transacao tr : repTra.getValues()){
             if(tr.id_cli == cid){
                 cout << "  [id:" + to_string(tr.id_tr) + "]" + " "
                 + tr.id_cli + ":" + to_string((int)tr.value) + "\n";
@@ -104,36 +140,16 @@ public:
     string nome;
     Sistema* psis;
 
-    Agiota(string nome, Sistema* psis){
-        this->nome = nome;
-        this->psis = psis;
-    }
+    Agiota(string nome, Sistema* psis):
+        nome(nome), psis(psis){}
     
     void matar(string cid){
-        bool b = false;
-        int cont = 0;
-        for(auto &cli: psis->clientes){
-            if(cli.id == cid){
-                psis->clientes.erase(psis->clientes.begin()+cont);
-                cont = 0;
-                b = true;
-            }
-            if(b) break;
-            cont++;
-        }
-        /* for(int i = psis->transacoes.size(); i>=0; i--){
-            if(psis->transacoes[i].id_cli == cid){
-                psis->transacoes.erase(psis->transacoes.begin()+i);
-            }
-        } */
-        for(auto &tr: psis->transacoes){
-            if(tr.id_cli == cid){
-                psis->transacoes.erase(psis->transacoes.begin()+cont);
-                cont--;
-            }
-            cont++;
-        }
+        psis->repCli.rem(cid);
+        for(auto &tr: psis->repTra.getValues())
+            if(tr.id_cli == cid)
+                psis->repTra.rem(to_string(tr.id_tr));
     }
+
     void toString(){
         cout << "nome: " + nome + " | saldo: " + to_string(psis->value);
     }

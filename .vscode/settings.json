@@ -8,6 +8,8 @@
         "initializer_list": "cpp",
         "*.tcc": "cpp",
         "string": "cpp",
-        "istream": "cpp"
+        "istream": "cpp",
+        "new": "cpp",
+        "streambuf": "cpp"
     }
 }

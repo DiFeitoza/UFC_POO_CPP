@@ -1,5 +1,5 @@
 CPPFLAGS = -Wall -std=c++17 -g
 
 all:
-	g++ agiota.cpp -o main
+	g++ -Wall -std=c++17 -g trem.cpp -o main
 	.\main
