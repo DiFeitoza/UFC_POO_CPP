@@ -1,0 +1,20 @@
+help
+invalido
+showUsers
+login diego ABC
+addUser diego 123
+addUser diego ABC
+login diego 456
+logout
+login diego 123
+invalido
+changePass 000 ABC
+changePass 123 ABC
+addNote N01 bela: oi meu amor? tudo bem?
+addNote N02 fera: nao, estou uma fera!
+addNote N01 bela: voce este lindo hoje!
+showNotes
+rmNote N03
+rmNote N01
+showNotes
+manual

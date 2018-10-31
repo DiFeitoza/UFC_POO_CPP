@@ -90,16 +90,16 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Por volta de 4 horas.
 
 ## Atividade 08 - Serviço de Anotações
-**Resumo e Observações**: Iniciando...
+**Resumo e Observações**: Código completo e com alguns recursos a mais, atenção especial às mensagens de erro. Limitei o acesso às funcionalidades do sistema conforme o usuário estavesse cadastrado ou não. Um pouco diferente da forma como estava no site.
 
 - **Com quem e como você fez**:
-  - 
+  - Fiz só, com base nos conhecimentos adquiridos em sala e em pesquisas pela internet.
 - **O que aprendeu e sabe fazer**:
-  - 
+  - Aprendi a fazer o uso do sistema de login que não havia ficado claro com a atividade "segredos". Entendi a ideia de ter um usuário "atual" e usar nullptr para saber se estou logado ou não.
 - **O que tem dificuldade ainda**:
-  - 
+  - Nesta atividade as dúvidas foram sanadas.
 - **Quanto tempo levou pra fazer a atividade**:
-  - 
+  - Em torno de 8 horas.
 
 ## Atividade 09 - Cálculo de Salário
 **Resumo e Observações**: Iniciando...

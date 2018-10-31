@@ -1,5 +1,6 @@
 #include <iostream>
 #include <sstream>
+#include <algorithm>
 #include <vector>
 
 using namespace std;
@@ -17,10 +18,6 @@ public:
         if((value < 0) || (value > 10))
             throw "fail: nivel invalido";
         this->nivel = value;
-    }
-
-    void setSegredo(string newSec){
-        this->texto = newSec;
     }
 
     string toString(){
@@ -67,7 +64,7 @@ public:
         for(auto& user : usuarios)
           if(user.getId() == id)
                 return user;
-        throw "fail: usuario nao existe";
+        throw "fail: id nao existe";
     }
   
     void addUser(User user){
@@ -76,6 +73,21 @@ public:
                 throw "fail: id ja existe";
         usuarios.push_back(user);
     }
+
+    vector<string> getUsers(){
+        vector<string> usernames;
+        for(auto& user : usuarios)
+            usernames.push_back(user.getId());
+        std::sort(usernames.begin(), usernames.end());
+        return usernames;
+    }
+    vector<string> getSecrets(){
+        vector<string> usernames;
+        for(auto& user : usuarios)
+            usernames.push_back(user.getId());
+        std::sort(usernames.begin(), usernames.end());
+        return usernames;
+    }
 };
 
 class GerLogin{
@@ -83,7 +95,8 @@ class GerLogin{
     Sistema * sistema;
 public:
     GerLogin(Sistema * sistema){
-        this->sistema = sistema;     
+        this->sistema = sistema;
+        this->current = nullptr;   
     }
   
     User& getCurrent(){
@@ -114,8 +127,7 @@ class Controller{
     User * current;
 public:
     Controller():
-      gerLog(&sist)
-    {
+        gerLog(&sist){
         current = nullptr;
     }
   
@@ -139,13 +151,8 @@ public:
             string old, newPass;
             in >> old >> newPass;
             gerLog.getCurrent().changePass(old, newPass);
-        }else if(op == "segredo"){
-            int level;
-            string newSec;
-            in >> level;
-            getline(in, newSec);
-            gerLog.getCurrent().setSegredo(newSec);
-        }
+        }else
+            cout << "fail: comando invalido" << endl;
     };
     
     void exec(){

@@ -10,6 +10,7 @@
         "string": "cpp",
         "istream": "cpp",
         "new": "cpp",
-        "streambuf": "cpp"
+        "streambuf": "cpp",
+        "ostream": "cpp"
     }
 }
