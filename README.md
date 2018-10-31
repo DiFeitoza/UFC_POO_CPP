@@ -5,7 +5,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 ![UFC ao fundo, à direita um sonhador](Outros/DiegoUFC.jpg)
 
 # Relatórios
-## Atividade 01 - Carro
+## [Atividade 01 - Carro](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/01_Carro)
 **Resumo e Observações**: O código foi upado dentro do prazo, porém como o repositório não estava organizado conforme o repositório modelo, reestruturei e upei novamente.
 
 - **Com quem e como você fez**:
@@ -17,7 +17,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Quanto tempo levou pra fazer a atividade**:
   - Entre 3 e 4 horas.
 
-## Atividade 02 - Topic
+## [Atividade 02 - Topic](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/03_Topic)
 **Resumo e Observações**: A atividade foi upada na quinta-feira, hoje, dia 01/09, estou enviando o relatório. Pretendo melhorar o código acrescentando o aprendizado das atividades posteriores.
 
 - **Com quem e como você fez**:
@@ -29,7 +29,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Quanto tempo levou pra fazer a atividade**:
   - Entre 8 e 10 horas, pois tive alguns problemas com a IDE, Git, lidar com laços usando o 'nullptr'.
 
-## Atividade 03 - Contato Telefônico
+## [Atividade 03 - Contato Telefônico](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/05_Contato)
 **Resumo e Observações**: Fiz alterações para que o projeto leia os testes direto do arquivo "contatos.txt" em vez de ter que digitá-los ou colá-los no terminal. Caso queira testar manualmente, basta adicionar "manual" em uma das linhas do "contatos.txt".
 
 - **Com quem e como você fez**:
@@ -41,7 +41,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 7 horas.
 
-## Atividade 04 - Pet Virtual (Tamagotchi)
+## [Atividade 04 - Pet Virtual (Tamagotchi)](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/06_Tamagoshi)
 **Resumo e Observações**: Código separado em módulos cpp e hpp por classe com ajuda do professor.
 
 - **Com quem e como você fez**:
@@ -53,7 +53,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 10 horas.
 
-## Atividade 05 - Agiota
+## [Atividade 05 - Agiota](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/07_Agiota)
 **Resumo e Observações**: concluído fora do prazo inicial, porém antes da solução e sem aplicar as facilidades aprendidas nas aulas seguintes.
 
 - **Com quem e como você fez**:
@@ -65,7 +65,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 15 horas.
 
-## Atividade 06 - Repositório I
+## [Atividade 06 - Repositório I](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/10_Reposit%C3%B3rio_I)
 **Resumo e Observações**: Dessa vez eu digitei todo o código, não utilizei o recurso "copiar/colar". Realmente fluiu melhor.
 
 - **Com quem e como você fez**:
@@ -77,7 +77,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 8 horas.
 
-## Atividade 07 - Agiota+Repositorio
+## [Atividade 07 - Agiota+Repositorio](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/08_Agiota%2BReposit%C3%B3rio)
 **Resumo e Observações**: Única dificuldade foi em relação às chaves para transações, pois precisavam manter o vínculo com o mesmo cliente e ao mesmo tempo ser única. Depois percebi que poderia usar a string do id da transação para fazer isso.
 
 - **Com quem e como você fez**:
@@ -89,7 +89,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Quanto tempo levou pra fazer a atividade**:
   - Por volta de 4 horas.
 
-## Atividade 08 - Serviço de Anotações
+## [Atividade 08 - Serviço de Anotações](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/11_Servi%C3%A7o%20_de_Anota%C3%A7%C3%B5es)
 **Resumo e Observações**: Código completo e com alguns recursos a mais, atenção especial às mensagens de erro. Limitei o acesso às funcionalidades do sistema conforme o usuário estavesse cadastrado ou não. Um pouco diferente da forma como estava no site.
 
 - **Com quem e como você fez**:
@@ -101,7 +101,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 8 horas.
 
-## Atividade 09 - Cálculo de Salário
+## [Atividade 09 - Cálculo de Salário](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/12_C%C3%A1lculo_de_Sal%C3%A1rio)
 **Resumo e Observações**: Iniciando...
 
 - **Com quem e como você fez**:
@@ -113,7 +113,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Quanto tempo levou pra fazer a atividade**:
   - 
 
-## Atividade 10 - Embarque no Trem 
+## [Atividade 10 - Embarque no Trem](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/13_Trem)
 **Resumo e Observações**: Fiz toda a implementação que faltava. Criei a classe para vagões de carga, o desembarque, os destrutores, toString da classe. Falta fazer a classe de movimentação e registro.
 
 - **Com quem e como você fez**:
