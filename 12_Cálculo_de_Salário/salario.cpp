@@ -10,9 +10,9 @@ using namespace std;
 class Funcionario{
 protected:
     string nome, profissao;
-    int diaria = 0, maxdiaria, salario;
+    int diaria = 0, maxdiaria, bonus = 0, salario;
 public:
-    Funcionario(string nome = ""):
+    Funcionario(string nome):
         nome(nome){}
 
     virtual string getName() = 0;
@@ -21,7 +21,7 @@ public:
     virtual int getMaxDiaria() = 0;
     virtual void calcSalario() = 0;
     virtual string toString() = 0;
-
+    virtual void setBonus(int val){bonus = val;}
     virtual void addDiaria(){this->diaria += 1;}
 };
 
@@ -30,7 +30,7 @@ class Professor : public Funcionario{
     int maxdiaria = {2};
     char classe;
 public:
-    Professor(string nm = "", char cs = 0):
+    Professor(string nm, char cs):
         Funcionario(nm), classe(cs){}
 
     virtual string getName(){return nome;} 
@@ -46,7 +46,7 @@ public:
             case 'D': salario = 9000; break;
             case 'E': salario = 11000; break;
         }
-        salario += 100 * diaria;
+        salario += 100 * diaria + bonus;
     }
     string toString(){
         stringstream ss;
@@ -60,7 +60,7 @@ class SerTecAdm : public Funcionario{
     string profissao = {"Sta"};
     int maxdiaria = {1}, nivel;
 public:
-    SerTecAdm(string nm = "", int nv = '\0'):
+    SerTecAdm(string nm, int nv):
         Funcionario(nm), nivel(nv){}
 
     virtual string getName(){return nome;} 
@@ -69,7 +69,7 @@ public:
     virtual int getMaxDiaria(){return maxdiaria;}
 
     void calcSalario(){
-        salario = 3000 + 300 * nivel + 100 * diaria;
+        salario = 3000 + 300 * nivel + 100 * diaria + bonus;
     }
     string toString(){
         stringstream ss;
@@ -84,7 +84,7 @@ class Terceirizado : public Funcionario{
     int maxdiaria = {-1}, horastrab;
     string adicsalub;
 public:
-    Terceirizado(string nm = "", int ht = 0, string as = ""):
+    Terceirizado(string nm, int ht, string as):
         Funcionario(nm), horastrab(ht), adicsalub(as){}
 
     virtual string getName(){return nome;} 
@@ -93,7 +93,7 @@ public:
     virtual int getMaxDiaria(){return maxdiaria;}
 
     void calcSalario(){
-        salario = 4 * horastrab;
+        salario = 4 * horastrab + bonus;
         if(adicsalub == "sim")
             salario += 500;
     }
@@ -149,6 +149,12 @@ public:
         else
             throw "fail: limite de diarias atingido";
     }
+    void setBonus(int bonus){
+        bonus = bonus / data.size();
+        for(auto& pair : data){
+            pair.second->setBonus(bonus);
+        }
+    }
     string toString(){
         stringstream ss;
         for(auto pair : data)
@@ -167,7 +173,7 @@ public:
         string op;
 
         in >> op;
-    
+
         try{
             if(op == "addProf"){
                 string name;
@@ -176,6 +182,7 @@ public:
                 Professor* P = new Professor(name, level);
                 if(!mySis.addUser(name, P))
                     delete P;
+                out << "done";
             }
             else if(op == "addSta"){
                 string name;
@@ -184,6 +191,7 @@ public:
                 SerTecAdm* S = new SerTecAdm(name, level);
                 if(!mySis.addUser(name, S))
                     delete S;
+                out << "done";
             }
             else if(op == "addTer"){
                 string name, salub;
@@ -192,6 +200,7 @@ public:
                 Terceirizado * T = new Terceirizado(name, hours_work, salub);
                 if(!mySis.addUser(name, T))
                     delete T;
+                out << "done";
             }
             else if(op == "rm"){
                 string name;
@@ -205,10 +214,18 @@ public:
                     out << mySis.getUser(op)->toString();
                 } else
                     out << mySis.toString();
-            }else if(op == "addDiaria"){
+            }
+            else if(op == "addDiaria"){
                 string name;
                 in >> name;
                 mySis.addDiaria(name);
+                out << "done";
+            }
+            else if(op == "setBonus"){
+                int bonus;
+                in >> bonus;
+                mySis.setBonus(bonus);
+                out << "done";
             }
         }
         catch(char const* e){out << e;}

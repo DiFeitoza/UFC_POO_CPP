@@ -97,21 +97,21 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **O que aprendeu e sabe fazer**:
   - Aprendi a fazer o uso do sistema de login que não havia ficado claro com a atividade "segredos". Entendi a ideia de ter um usuário "atual" e usar nullptr para saber se estou logado ou não.
 - **O que tem dificuldade ainda**:
-  - Nesta atividade as dúvidas foram sanadas.
+  - Não consegui usar o recurso "friend" para referenciar um método específico de outra classe. Devido à dificuldade, referenciei a classe como amiga.
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 8 horas.
 
 ## [Atividade 09 - Cálculo de Salário](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/12_C%C3%A1lculo_de_Sal%C3%A1rio)
-**Resumo e Observações**: Avançando!...
+**Resumo e Observações**: Concluído!
 
 - **Com quem e como você fez**:
-  - 
+  - Fiz só, com base nos conhecimentos adquiridos em sala e em pesquisas pela internet.
 - **O que aprendeu e sabe fazer**:
-  - 
+  - Fixei os conteúdos de herança e polimorfismo. Este projeto permitiu pôr em prática novos conhecimentos; revisei muito do que vinha fazendo em trabalhos anteriores!
 - **O que tem dificuldade ainda**:
-  - 
+  - Sem muitas difuculdades, porém com algumas dúvidas para esclarecer em sala. Ainda não senti a necessidade de usar sobrecarga de operadores, por consequência não tenho segurança sobre o uso.
 - **Quanto tempo levou pra fazer a atividade**:
-  - 
+  - Em torno de 10 horas.
 
 ## [Atividade 10 - Embarque no Trem](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/13_Trem)
 **Resumo e Observações**: Fiz toda a implementação que faltava. Criei a classe para vagões de carga, o desembarque, os destrutores, toString da classe. Falta fazer a classe de movimentação e registro.

@@ -19,3 +19,8 @@ addDiaria gilmario
 show gilmario
 addDiaria helder
 addDiaria bismark
+setBonus 600
+show gilmario 
+setBonus 300
+show gilmario
+manual
