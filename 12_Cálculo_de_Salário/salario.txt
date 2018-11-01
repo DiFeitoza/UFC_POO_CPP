@@ -1,0 +1,23 @@
+addProf david C
+addProf elvis D
+show
+rmUser elvis
+show
+manual
+addSta gilmario 3
+addTer helder 40 sim
+show david
+  Prof david classe C
+  salario 7000
+show gilmario
+  Sta gilmario nivel 3
+  salario 3900
+show helder
+  Ter helder 40h insalubre
+  salario 660
+show pinoquio
+  funcionario pinoquio nao existe
+rm elvis
+  Prof elvis removido
+rm batman
+  funcionario batman nao existe

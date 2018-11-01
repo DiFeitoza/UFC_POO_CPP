@@ -102,7 +102,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Em torno de 8 horas.
 
 ## [Atividade 09 - Cálculo de Salário](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/12_C%C3%A1lculo_de_Sal%C3%A1rio)
-**Resumo e Observações**: Iniciando...
+**Resumo e Observações**: Avançando!...
 
 - **Com quem e como você fez**:
   - 

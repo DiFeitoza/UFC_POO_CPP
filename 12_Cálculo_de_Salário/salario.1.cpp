@@ -18,25 +18,24 @@ public:
 
 class Professor : public Funcionario{
     string profissao = {"P"};
-    char classe;
+    char nivel;
 public:
-    Professor(string nm = "", char cs = 0):
-        Funcionario(nm), classe(cs){}
+    Professor(string nm = "", char nv = 0):
+        Funcionario(nm), nivel(nv){}
 
     string toString(){
-        return nome + ":" + profissao + ":" + classe;
+        return nome + ":" + profissao + ":" + nivel;
     }
 };
 
 class SerTecAdm : public Funcionario{
     string profissao = {"A"};
-    char nivel;
 public:
-    SerTecAdm(string nm = "", char nv = '\0'):
-        Funcionario(nm), nivel(nv){}
+    SerTecAdm(string nome = ""):
+        Funcionario(nome){}
 
     string toString(){
-        return nome + ":" + profissao + ":" + nivel;
+        return nome + ":" + profissao;
     }
 };
 
@@ -67,14 +66,14 @@ public:
         throw "fail: usuario ja cadastrado";
     }
     void rmUser(string k){
-        auto user = getUser(k);
+        auto &user = getUser(k);
         data.erase(k);
         delete user;
     }
     T* getUser(string k){
         auto it = data.find(k);
         if(it != data.end())
-            return it->second;
+            return it;
         throw "fail: usuario nao existe";
     }
     string toString(){
@@ -105,18 +104,14 @@ public:
                 if(!mySis.addUser(name, P))
                     delete P;
             }
-            else if(op == "addSta"){
-                string name;
-                char level;
-                in >> name >> level;
-                SerTecAdm* S = new SerTecAdm(name, level);
-            }
-            else if(op == "addTer"){
-            }
             else if(op == "rmUser"){
                 string name;
                 in >> name;
                 mySis.rmUser(name);
+            }
+            else if(op == "addSta"){
+            }
+            else if(op == "addTer"){
             }
             else if(op == "show"){
                 out << mySis.toString();
@@ -158,5 +153,3 @@ int main(){
     c.coletor();
     return 0;
 }
-
-//implementar os destrutores!
