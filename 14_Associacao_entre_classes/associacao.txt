@@ -1,0 +1,23 @@
+addPat pat_ana pat_beta pat_celta
+addDoc doc_ditto doc_ego doc_falco
+tie doc_ditto pat_ana
+tie doc_ego pat_ana pat_beta
+tie doc_falco pat_ana pat_beta pat_celta
+tie doc_zero_um kkk huahua whats?
+tie doc ditto pat_maionese
+show
+untie doc_ego pat_ana pat_beta
+show
+rmPat pat_celta
+show
+rmDoc doc_ego
+show
+sendMsg pat_ana doc_falco bomdia_s2 bom dia querido, tudo a pampa? mati a fomigui qui tavi aqui.
+sendMsg pat_ana doc_falco bomtarde_s2 tchi amo meu bem querer!
+sendMsg doc_falco doc_ditto boatarde_xD boa tarde quirido! supimpa! mizravi matis a formiguis, filis de p@#$.
+showInbox doc_falco
+showInbox doc_falco
+sendMsg pat_ana doc_ditto boanoite_s2 boa noite! gosto mais de ti que deli
+showInbox doc_ditto
+showInbox doc_ditto
+manual

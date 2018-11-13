@@ -11,6 +11,7 @@
         "istream": "cpp",
         "new": "cpp",
         "streambuf": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iosfwd": "cpp"
     }
 }

@@ -124,3 +124,15 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Não comecei a parte de movimentação e registro, talvez tenha dificuldade por ser novidade.
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 4 horas.
+
+## [Atividade 11 - Associacao entre Classes](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/14_Associacao_entre_classes)
+**Resumo e Observações**: Implementei tudo a partir do primeiro código disponibiizado. Criei um map<Users*> e gerenciei os pacientes e medicos fazendo polimorfismo de classes usando o método dynamic_cast.
+
+- **Com quem e como você fez**:
+  - Fiz só, com base nos conhecimentos adquiridos em sala e em pesquisas pela internet.
+- **O que aprendeu e sabe fazer**:
+  - Pratiquei herança, destrutores, o conceito de classes abstratas, polimorfismo, tratamento de map e vector e separação de arquivos em '.h' e '.cpp'.
+- **O que tem dificuldade ainda**:
+  - Sobrecarga de operadores, separação em arquivos somado a associação de classes e o uso do "const" nos métodos das classes que vieram implementadas no arquivo orginal.
+- **Quanto tempo levou pra fazer a atividade**:
+  - Em torno de 12 horas.
