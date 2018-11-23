@@ -136,3 +136,15 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Sobrecarga de operadores, separação em arquivos somado a associação de classes e o uso do "const" nos métodos das classes que vieram implementadas no arquivo orginal.
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 12 horas.
+
+## [Atividade 12 - Agenda de Entradas (Prova)](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/15_Agenda+Favoritos)
+**Resumo e Observações**: Em desenvolvimento..
+
+- **Com quem e como você fez**:
+  - 
+- **O que aprendeu e sabe fazer**:
+  - 
+- **O que tem dificuldade ainda**:
+  - 
+- **Quanto tempo levou pra fazer a atividade**:
+  -
