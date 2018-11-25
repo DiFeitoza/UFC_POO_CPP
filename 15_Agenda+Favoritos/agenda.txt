@@ -16,14 +16,19 @@ addContato zac fixo:3131
 agenda
 fav eva
 fav ana
-fav ana
 fav zac
 fav rex
 agenda
 favorited
-rmContato zac
+rmEntry zac
 favorited
 unfav ana
 favorited
 agenda
+addNota title texto1
+addNota title texto2
+agenda
+manual
+fav title
+favorited
 manual

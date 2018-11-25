@@ -7,25 +7,55 @@
 using namespace std;
 
 class Entry {
-    bool favorited;
+    bool favorited = false;
 public:
-    Entry();
-    virtual ~Entry();
+    Entry(){};
+    virtual ~Entry(){};
     virtual string getId() = 0;
-    virtual void setFavorited(bool value) = 0;
-    virtual bool isFavorited() = 0;
+    void setFavorited(bool value){ this->favorited = value; }    
+    bool isFavorited(){ return favorited; }
     virtual string toString() = 0;
 };
 
-class Fone {
+class Note : public Entry { 
+    string id;
+    vector<string> itens;
 public:
+    Note(string id = ""):id(id){}
+    
+    string getId(){ return id; }
+
+    void addItem(string item){
+        itens.push_back(item);
+    }
+    void rmItem(size_t indice){
+        if(indice >= itens.size() || indice < 0)
+            throw "indice" + to_string(indice) + "nao existe";
+        itens.erase(itens.begin() + indice);
+    }
+    virtual string toString(){
+        stringstream ss;
+        int ind = 0;
+        if(this->isFavorited()) ss << "@ ";
+        else ss << "- ";
+        ss << this->id << " N ";
+        for(auto item : itens)
+            ss << "[" + to_string(ind++) + ":" + item + "]";
+        return ss.str();
+    }
+};
+
+class Fone {
     string id;
     string number;
-
+public:
     Fone(string id = "", string number = ""){
         this->id = id;
         this->number = number;
     }
+
+    string getId(){ return id; }
+    string getNumber(){ return number; }
 
     static bool validate(string number) {
         string data = "1234567890()- ";
@@ -39,44 +69,38 @@ public:
 class Contato : public Entry {
     string name;
     vector<Fone> fones;
-    bool favorited;
 public:
     Contato(string name = ""):
-        name(name), favorited(false){}
+        name(name){}
 
-    string getId(){
-        return name;
-    }
-    void setFavorited(bool value){
-        this->isFavorited = value;
-    }    
-    bool isFavorited(){
-        return isFavorited;
-    }
+    string getId(){ return name; }
+
     void addFone(Fone fone){
-        if(!Fone::validate(fone.number))
-            throw string("fone " + fone.number + " invalido");
+        if(!Fone::validate(fone.getNumber()))
+            throw "fone " + fone.getNumber() + " invalido";
         fones.push_back(fone);
     }
     void rmFone(size_t indice){
         if(indice < 0 || indice >= fones.size())
-            throw string("indice " + to_string(indice) + " nao existe");
+            throw "indice " + to_string(indice) + " nao existe";
         fones.erase(fones.begin() + indice);
     }
     vector<Fone> getFones(){
         vector<Fone> resp;
-        for(auto fone: fones)
+        for(auto fone : fones)
             resp.push_back(fone);
         return resp;
     }
-    string toString(){
+    virtual string toString(){
         stringstream ss;
-        if(this->isFavorited) ss << "@ ";
-        else ss << "- ";
-        ss << this->name + " C ";
+        if(this->isFavorited())
+            ss << "@ ";
+        else
+            ss << "- ";
+        ss << this->name << " C ";
         int i = 0;
         for(auto fone : getFones())
-            ss << "[" + to_string(i++) + ":" + fone.id + ":" + fone.number + "]";
+            ss << "[" + to_string(i++) + ":" + fone.getId() + ":" + fone.getNumber() + "]";
         return ss.str();
     }
 };
@@ -86,41 +110,45 @@ class Agenda {
     map<string, Entry*> m_favorites;
 public:
     void addEntry(Entry * entry){
-        string id = entry->getId;
+        string id = entry->getId();
         m_entries[id] = entry;
     }
     void rmEntry(string id){
         m_entries.erase(id);
         m_favorites.erase(id);
-        //delete;
     }
     void favorite(string id){
-        getEntry(id)->setFavorited(true);
+        Entry * entry = getEntry(id);
+        entry->setFavorited(true);
+        m_favorites[id] = entry;
     }
     void unfavorite(string id){
         getEntry(id)->setFavorited(false);
+        m_favorites.erase(id);
     }
     bool exists(string id){
         auto it = m_entries.find(id);
         if(it != m_entries.end())
             return true;
-        throw "fail: entrada" + id + "nao existe";
+        return false;
     }
     Entry * getEntry(string id){
         auto it = m_entries.find(id);
         if(it != m_entries.end())
             return it->second;
-        throw "fail: entrada" + id + "nao existe";        
+        throw "entrada " + id + " nao existe";
     }
     vector<Entry*> getEntries(){
         vector<Entry*> v_entries;
         for(auto pair : m_entries)
             v_entries.push_back(pair.second);
+        return v_entries;
     }
     vector<Entry*> getFavorited(){
         vector<Entry*> v_favorites;
         for(auto pair : m_favorites)
             v_favorites.push_back(pair.second);
+        return v_favorites;
     }
     vector<Entry*> search(string pattern){
         vector<Entry*> resp;
@@ -129,81 +157,20 @@ public:
                 resp.push_back(par.second);
         return resp;
     }
-    string toString(){
-        string saida = "";
-        for(auto entry : getEntries())
-            saida += entry->toString() + "\n";
-        return saida;
-    }
-};
-/*
-class Agenda {
-    map<string, Contato> contatos;
-    map<string, Contato*> favoritos;
-
-public:
-    void addContato(Contato cont){
-        string name = cont.getName();
-        contatos[name] = cont;
-    }
-    void rmContato(string name) {
-        contatos.erase(name);
-        favoritos.erase(name);
-    }
-
-    bool exists(string name){
-        if(contatos.count(name) == 1)
-           return true;
+    template<typename T>
+    bool casttest(Entry* e, T* t){
+        if(dynamic_cast<T*>(e))
+            return true;
         return false;
     }
-
-    void favoritar(string nome){
-        Contato* pContat = getContato(nome);
-        pContat->setFavorite(true);
-        favoritos[nome] = pContat;
-    }
-
-    vector<Contato*> getFavoritos(){
-        vector<Contato*> resp;
-        for(auto contato : favoritos)
-            if(contato.second->getFavorite())
-                resp.push_back(contato.second);
-        return resp;
-    }
-
-    void desfavoritar(string nome){
-        getContato(nome)->setFavorite(false);
-    }
-
-    Contato * getContato(string name){
-        if(contatos.count(name))
-            return &contatos[name];
-        throw string("fail: contato " + name + " nao existe");
-    }
-
-    vector<Contato> getContatos(){
-        vector<Contato> resp;
-        for(auto& par : contatos)
-            resp.push_back(par.second);
-        return resp;
-    }
-
-    vector<Contato> search(string pattern){
-        vector<Contato> resp;
-        for(auto& par : contatos)
-            if(par.second.toString().find(pattern) != string::npos)
-                resp.push_back(par.second);
-        return resp;
-    }
-
+    
     string toString(){
-        string saida = "";
-        for(auto contato : getContatos())
-            saida += contato.toString() + "\n";
-        return saida;
+        stringstream ss;
+        for(auto entry : getEntries())
+            ss << entry->toString() << "\n";
+        return ss.str();
     }
 };
-*/
 
 class Controller {
     Agenda agenda;
@@ -218,10 +185,13 @@ public:
             if(op == "addContato"){
                 string name, id_number;
                 bool exist = false;
+
                 ss >> name;
                 Contato* cont = new Contato(name);
-                if(cont = dynamic_cast<Contato*>(agenda.getEntry(name)))
-                    exist = true;
+
+                if(agenda.exists(name))
+                    if(cont = dynamic_cast<Contato*>(agenda.getEntry(name)))
+                        exist = true;
                 while(ss >> id_number){
                     string id, fone;
                     stringstream ssfone(id_number);
@@ -237,16 +207,40 @@ public:
                 int indice;
                 ss >> name >> indice;
                 Entry * entry = agenda.getEntry(name);
-                if(Contato * cont = dynamic_cast<Contato*>(entry))
+                if(Contato* cont = dynamic_cast<Contato*>(entry))
                     cont->rmFone(indice);
             }
-            else if(op == "rmContato"){
+            else if(op == "addNota"){
+                string title, item;
+                bool exist = false;
+                ss >> title;
+                Note * nota = new Note(title);
+
+                if(agenda.exists(title))
+                    if(nota  = dynamic_cast<Note*>(agenda.getEntry(title)))
+                        exist = true;
+                while(ss >> item)
+                    nota->addItem(item);
+                if(!exist)
+                    agenda.addEntry(nota);
+            }
+            else if(op == "rmItem"){
+                string name;
+                int indice;
+                ss >> name >> indice;
+                Entry * entry = agenda.getEntry(name);
+                if(Note * note = dynamic_cast<Note*>(entry))
+                    note->rmItem(indice);
+            }            
+            else if(op == "rmEntry"){
                 string name;
                 ss >> name;
+                Entry* entry = agenda.getEntry(name);
                 agenda.rmEntry(name);
+                delete entry;
             }
             else if(op == "agenda"){
-                cout << agenda.toString();
+                out << agenda.toString();
             }
             else if(op == "search"){
                 string pattern;
@@ -267,13 +261,12 @@ public:
                 agenda.unfavorite(name);
             }
             else if(op == "favorited"){
-                auto favs = agenda.getFavorited();
-                for(auto contato : favs)
-                    cout << contato->toString() + "\n";
+                auto v_favs = agenda.getFavorited();
+                for(auto entry : v_favs)
+                    out << entry->toString() + "\n";
             }
-            else{
+            else
                 cout << "comando invalido" << endl;
-            }
         }
         catch(string e){ out << "  fail: " + e; }
 	    catch(char const* e){ out << "  fail: " << e; }
@@ -291,14 +284,14 @@ public:
 				if(line == "manual"){
 					while(line != "end"){
 						getline(cin, line);
-						cout << "  " << shell(line) << endl;
+						cout << shell(line) << endl;
 					}
 				}
 				else if(line == "end"){
 					break;
 				}
 				cout << line << endl;
-				cout << "  " << shell(line) << endl;
+				cout << shell(line) << endl;
 			}
 			arquivo.close();
 		} else
