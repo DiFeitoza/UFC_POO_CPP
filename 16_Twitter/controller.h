@@ -5,6 +5,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <algorithm>
 #include <map>
 
 using namespace std;
@@ -13,7 +14,7 @@ class Tweet{
     int id;
     string username, text;
 public:
-    Tweet(int id, string username, string text)
+    Tweet(int id = 0, string username = "", string text = "")
         : id(id), username(username), text(text){}
 
     string toString(){
@@ -21,22 +22,10 @@ public:
     }
 };
 
-class TweetGenerator{
-    int nextId = 0;
-    Repository<Tweet> * p_r_tweet;
-public:    
-    TweetGenerator(Repository<Tweet>* r_tweet){
-        this->p_r_tweet = r_tweet;
-    }
-    Tweet* create(string username, string text){
-        Tweet * twt = new Tweet(nextId++, username, text);
-        return twt;
-    }
-};
-
 class User{
     string username;
-    vector<Tweet*> timeline;
+    int queue;
+    vector<Tweet*> v_timeline;
     vector<User*> v_seguidos;
     vector<User*> v_seguidores;
 public:
@@ -58,7 +47,23 @@ public:
         for(auto seguidor : v_seguidores)
             ss << seguidor->toString() + " ";
         return ss.str();
-    }    
+    }
+    void setTimeline(Tweet * twt){
+        this->v_timeline.push_back(twt);
+        this->queue++;
+        for(auto seguidor : v_seguidores){
+            seguidor->v_timeline.push_back(twt);
+            seguidor->queue++;
+        }
+    }
+    string unread(){
+        stringstream ss;
+        for(size_t i = v_timeline.size()-1; i > v_timeline.size() - queue; i--){
+            ss << this->v_timeline[i]->toString() + "\n";
+        }
+        this->queue = 0;
+        return ss.str();
+    }
     string toString(){
         return username + "\n";
     }
@@ -68,6 +73,8 @@ template<typename T>
 class Repository{
     map<string, T> data; 
 public:
+    Repository(){}
+
     void add(string k, T v){
         data[k] = v;
     }
@@ -104,6 +111,19 @@ public:
     }
 };
 
+class TweetGenerator{
+    int nextId = {0};
+    Repository<Tweet> * p_r_tweet;
+public:    
+    TweetGenerator(Repository<Tweet>* r_tweet){
+        this->p_r_tweet = r_tweet;
+    }
+    Tweet* createtwt(string username, string text){
+        p_r_tweet->add(to_string(nextId), Tweet(nextId, username, text));
+        nextId++;
+        return p_r_tweet->getT(username);
+    }
+};
 
 class Controller {
     Repository<User>* r_user;
@@ -138,7 +158,10 @@ public:
             }
             else if(op == "twittar"){
                 string username, text;
-                in >> username >> text;
+                in >> username;
+                getline(in, text);
+                auto twt = g_tweet->createtwt(username, text);
+                r_user->getT(username)->setTimeline(twt);
             }
             else if(op == "seguidores"){
                 string user;
@@ -151,8 +174,13 @@ public:
                 out << r_user->getT(user)->seguidos();
             }
             else if(op == "timeline"){
+                string user;
+                in >> user;    
             }
             else if(op == "unread"){
+                string user;
+                in >> user;
+                out << r_user->getT(user)->unread();
             }
             else if(op == "myTweets"){
             }
