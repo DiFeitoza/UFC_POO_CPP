@@ -12,6 +12,7 @@
         "new": "cpp",
         "streambuf": "cpp",
         "ostream": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "sstream": "cpp"
     }
 }

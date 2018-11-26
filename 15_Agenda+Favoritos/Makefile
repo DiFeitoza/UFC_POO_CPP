@@ -1,3 +1,3 @@
 all:
-	g++ -Wall -std=c++14 agenda.cpp -o main
+	g++ -Wall -std=c++14 main.cpp -o main
 	./main

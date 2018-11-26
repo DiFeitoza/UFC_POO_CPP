@@ -1,15 +1,11 @@
-addContato ana tim:3434 casa:4567 oi:8754 
-addContato bia vivo:5454
-agenda
+addContato ana tim:3434 casa:4567 loja:5789
 addContato eva oi:8585 claro:9999
 addContato eva tim:9967
 agenda
 rmFone ana 0
 agenda
-rmContato bia
+rmEntry bia
 agenda
-search eva
-search 4567
 addContato bia vivo:5454
 addContato rui casa:3233
 addContato zac fixo:3131
@@ -25,10 +21,17 @@ favorited
 unfav ana
 favorited
 agenda
-addNota title texto1
-addNota title texto2
+addNota feira pao banana macaxeira
+addNota amigos joao zeca teury
 agenda
-manual
-fav title
-favorited
+fav feira
+rmItem amigos 0
+agenda
+search t
+addContato diego cel:abc
+rmItem feira -1
+rmItem feira 3
+rmEntry limbo
+rmFone feira 0
+rmItem eva 0
 manual

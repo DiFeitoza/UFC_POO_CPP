@@ -138,13 +138,13 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Em torno de 12 horas.
 
 ## [Atividade 12 - Agenda de Entradas (Prova)](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/15_Agenda+Favoritos)
-**Resumo e Observações**: Em desenvolvimento..
+**Resumo e Observações**: Concluído conforme solcitado, separei os arquivos e fiz o tratamento de erros comuns.
 
 - **Com quem e como você fez**:
-  - 
+  - Fiz só, com base nos conhecimetos adquiritos em sala e algumas pesquisas no site cppreference.com.
 - **O que aprendeu e sabe fazer**:
-  - 
+  - Consegui separar os arquivos em '.h' e '.cpp', tudo funcionando como esperado. Em relação ao poliformismo e herança de classes foi tranquilo. Uma ou outra travada, mas consegui resolver.
 - **O que tem dificuldade ainda**:
-  - 
+  - Não sei se a separarção em arquivos foi feita da forma correta. Ainda não tenho segurança sobre quando precisarei de mais de um cpp, ou se devo deixar, em algum caso, classes unidas em um mesmo '.h'.
 - **Quanto tempo levou pra fazer a atividade**:
-  -
+  - Em torno de 10h.
