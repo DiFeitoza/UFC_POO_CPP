@@ -13,6 +13,7 @@
         "streambuf": "cpp",
         "ostream": "cpp",
         "iosfwd": "cpp",
-        "sstream": "cpp"
+        "sstream": "cpp",
+        "tuple": "cpp"
     }
 }
