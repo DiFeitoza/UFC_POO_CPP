@@ -147,16 +147,16 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **O que tem dificuldade ainda**:
   - Não sei se a separarção em arquivos foi feita da forma correta. Ainda não tenho segurança sobre quando precisarei de mais de um cpp, ou se devo deixar, em algum caso, classes unidas em um mesmo '.h'.
 - **Quanto tempo levou pra fazer a atividade**:
-  - Em torno de 6h.
+  - Em torno de 6 horas.
 
   ## [Atividade 13 - Twitter](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/16_Twitter)
-**Resumo e Observações**: em desenvolvimento..
+**Resumo e Observações**: Atividade concluída com sucesso.
 
 - **Com quem e como você fez**:
-  - 
+  - Fiz só, com base nos conhecimetos adquiritos em sala e pesquisas na web.
 - **O que aprendeu e sabe fazer**:
-  - 
+  - Pratiquei os recursos que aprendi durante o semestre;
 - **O que tem dificuldade ainda**:
-  - 
+  - Preciso pesquisar herdar uma classe 'template'.
 - **Quanto tempo levou pra fazer a atividade**:
-  - 
+  - Em torno de 8 horas.

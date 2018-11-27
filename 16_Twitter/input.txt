@@ -1,14 +1,41 @@
-addUser diego
-addUser tiago
+addUser goku
+addUser sara
+addUser tina
+addUser antisocial
 users
-seguir diego tiago
-seguidores diego
-seguidos diego
-seguidores tiago
-seguidos tiago
-twittar tiago meu primeiro tweet
-twittar tiago meu segundo tweet
-unread diego
-twittar tiago eu tambem ja usei
-unread diego
+seguir goku sara
+seguir goku tina
+seguir sara tina
+users
+seguidores goku
+seguidos goku
+twittar sara hoje estou triste
+twittar tina ganhei chocolate
+twittar sara partiu ru
+twittar tina chocolate ruim
+twittar goku internet maldita
+timeline goku
+myTweets goku
+timeline tina
+myTweets sara
+unread sara
+unread sara
+twittar tina eu
+twittar tina amo
+twittar tina chocolate
+unread sara
+unread sara
+like sara 6
+like tina 2
+like goku 2
+like sara 4
+myTweets sara
+like goku 2
+myTweets sara
+timeline yusuke
+timeline antisocial
+unread antisocial
+myTweets antisocial 
+seguir goku toguro
+like sara 90
 manual
