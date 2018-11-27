@@ -6,38 +6,38 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 
 # Relatórios
 ## [Atividade 01 - Carro](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/01_Carro)
-**Resumo e Observações**: O código foi upado dentro do prazo, porém como o repositório não estava organizado conforme o repositório modelo, reestruturei e upei novamente.
+**Resumo e Observações**: O código foi upado dentro do prazo, porém como o repositório não estava organizado conforme o repositório modelo, reestruturei e reenviei.
 
 - **Com quem e como você fez**:
   - Fiz só e com base na estrutura da calculadora feita em sala.
 - **O que aprendeu e sabe fazer**:
   - Aprendi a organizar o código usando funções que retornam dados do tipo 'bool' para evitar que a classe se comunique direto com o usuário.
 - **O que tem dificuldade ainda**:
-  - Adaptação a nova IDE, Makefile, Git e tantos novos conceitos de c++ que desconhecia.
+  - Adaptação à nova IDE, Makefile, Git e tantos outros conceitos de c++ que desconhecia.
 - **Quanto tempo levou pra fazer a atividade**:
   - Entre 3 e 4 horas.
 
 ## [Atividade 02 - Topic](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/03_Topic)
-**Resumo e Observações**: A atividade foi upada na quinta-feira, hoje, dia 01/09, estou enviando o relatório. Pretendo melhorar o código acrescentando o aprendizado das atividades posteriores.
+**Resumo e Observações**: A atividade foi upada na quinta-feira, porém hoje, dia 01/09, estou enviando o relatório. Pretendo melhorar o código acrescentando o aprendizado das atividades posteriores.
 
 - **Com quem e como você fez**:
   - Fiz só e com base na estrutura da atividade Cinema feita em sala.
 - **O que aprendeu e sabe fazer**:
-  - Consegui entender melhor a ideia de construtor e destrutor, também a importância de liberar a memória usando ponteiros e apontando para "nullptr" quando não for mais necessário.
+  - Consegui entender melhor a ideia de construtor e destrutor, também a importância de liberar a memória usando alocação dinâmica e apontando para "nullptr" quando não for mais necessária.
 - **O que tem dificuldade ainda**:
-  - Trabalhar com fluxos de string usando a biblioteca 'sstream', na próxima atividade proposta será necessário este conhecimento.
+  - Trabalhar com fluxos de string usando a biblioteca 'sstream'. Na próxima atividade proposta será necessário este conhecimento.
 - **Quanto tempo levou pra fazer a atividade**:
-  - Entre 8 e 10 horas, pois tive alguns problemas com a IDE, Git, lidar com laços usando o 'nullptr'.
+  - Entre 8 e 10 horas, pois tive alguns problemas com a IDE, Git e lidar com laços usando o 'nullptr'.
 
 ## [Atividade 03 - Contato Telefônico](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/05_Contato)
-**Resumo e Observações**: Fiz alterações para que o projeto leia os testes direto do arquivo "contatos.txt" em vez de ter que digitá-los ou colá-los no terminal. Caso queira testar manualmente, basta adicionar "manual" em uma das linhas do "contatos.txt".
+**Resumo e Observações**: Fiz alterações para que o projeto leia os testes direto do arquivo "contatos.txt" em vez de ter que digitá-los ou colá-los no terminal. Caso queira testar manualmente, basta adicionar "manual" em uma das linhas do arquivo "contatos.txt".
 
 - **Com quem e como você fez**:
   - Fiz só e com base na estrutura feita em sala.
 - **O que aprendeu e sabe fazer**:
-  - Estou aprendendo a usar o sistema de controlador e shell em vez de jogar tudo na main, permitindo, assim, fazer uso da biblioteca fstream e com ela a leitura dos testes a partir de um arquivo txt.
+  - Estou aprendendo a usar o sistema de controlador e shell em vez de jogar tudo na main; permitindo, assim, fazer uso da biblioteca fstream e com ela a leitura dos testes a partir de um arquivo txt.
 - **O que tem dificuldade ainda**:
-  - Começar o código do zero, sem um modelo base e ainda assim conseguir seguir a linha de raciocínio e estrutura desejada. Apesar disso, tenho conhecido e aprendido várias novidades sobre a linguagem.
+  - Começar o código do zero, sem um modelo base e ainda assim conseguir seguir a linha de raciocínio e estrutura desejada. Apesar disso, estou conhecendo e aprendendo várias novidades sobre a linguagem.
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 7 horas.
 
@@ -54,7 +54,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Em torno de 10 horas.
 
 ## [Atividade 05 - Agiota](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/07_Agiota)
-**Resumo e Observações**: concluído fora do prazo inicial, porém antes da solução e sem aplicar as facilidades aprendidas nas aulas seguintes.
+**Resumo e Observações**: Concluído fora do prazo inicial, porém antes da solução e sem aplicar as facilidades aprendidas nas aulas seguintes.
 
 - **Com quem e como você fez**:
   - Fiz só, com base nos conhecimentos adquiridos em sala e no tira-dúvidas pelo hangout quando tive dificuldades.
@@ -78,7 +78,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Em torno de 8 horas.
 
 ## [Atividade 07 - Agiota+Repositorio](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/08_Agiota%2BReposit%C3%B3rio)
-**Resumo e Observações**: Única dificuldade foi em relação às chaves para transações, pois precisavam manter o vínculo com o mesmo cliente e ao mesmo tempo ser única. Depois percebi que poderia usar a string do id da transação para fazer isso.
+**Resumo e Observações**: A única dificuldade foi em relação às chaves para transações, pois precisavam manter o vínculo com o mesmo cliente e ao mesmo tempo ser única. Depois percebi que poderia usar a string do id da transação para fazer isso.
 
 - **Com quem e como você fez**:
   - Fiz só, com base nos conhecimentos adquiridos em sala e em pesquisas pela internet. Reaproveitei a estrutura do Repositório I.
@@ -90,7 +90,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Por volta de 4 horas.
 
 ## [Atividade 08 - Serviço de Anotações](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/11_Servi%C3%A7o%20_de_Anota%C3%A7%C3%B5es)
-**Resumo e Observações**: Código completo e com alguns recursos a mais, atenção especial às mensagens de erro. Limitei o acesso às funcionalidades do sistema conforme o usuário estavesse cadastrado ou não. Um pouco diferente da forma como estava no site.
+**Resumo e Observações**: Código completo e com alguns recursos a mais, atenção especial às mensagens de erro. Limitei o acesso às funcionalidades do sistema conforme o usuário estivesse cadastrado ou não. Um pouco diferente da forma como estava estruturado no site.
 
 - **Com quem e como você fez**:
   - Fiz só, com base nos conhecimentos adquiridos em sala e em pesquisas pela internet.
@@ -114,7 +114,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Em torno de 10 horas.
 
 ## [Atividade 10 - Embarque no Trem](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/13_Trem)
-**Resumo e Observações**: Fiz toda a implementação que faltava. Criei a classe para vagões de carga, o desembarque, os destrutores, toString da classe. Falta fazer a classe de movimentação e registro.
+**Resumo e Observações**: Fiz toda a implementação que faltava. Criei a classe para vagões de carga, o desembarque, os destrutores e o toString da classe. Falta fazer a classe de movimentação e registro.
 
 - **Com quem e como você fez**:
   - Fiz só, com base nos conhecimentos adquiridos em sala e em pesquisas pela internet.
@@ -138,16 +138,16 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Em torno de 12 horas.
 
 ## [Atividade 12 - Agenda de Entradas (Prova)](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/15_Agenda+Favoritos)
-**Resumo e Observações**: Concluído conforme solcitado, separei os arquivos e fiz o tratamento de erros comuns.
+**Resumo e Observações**: Concluído conforme solicitado, separei os arquivos e fiz o tratamento de erros comuns.
 
 - **Com quem e como você fez**:
-  - Fiz só, com base nos conhecimetos adquiritos em sala e algumas pesquisas no site cppreference.com.
+    - Fiz só, com base nos conhecimetos adquiritos em sala e algumas pesquisas no site cppreference.com.
 - **O que aprendeu e sabe fazer**:
-  - Consegui separar os arquivos em '.h' e '.cpp', tudo funcionando como esperado. Em relação ao poliformismo e herança de classes foi tranquilo. Uma ou outra travada, mas consegui resolver.
+    - Consegui separar os arquivos em '.h' e '.cpp', tudo funcionando como esperado. Em relação ao poliformismo e herança de classes foi tranquilo. Uma ou outra travada, mas consegui resolver.
 - **O que tem dificuldade ainda**:
-  - Não sei se a separarção em arquivos foi feita da forma correta. Ainda não tenho segurança sobre quando precisarei de mais de um cpp, ou se devo deixar, em algum caso, classes unidas em um mesmo '.h'.
+    - Não sei se a separação em arquivos foi feita da forma correta. Ainda não tenho segurança sobre quando precisarei de mais de um cpp, ou se devo deixar, em algum caso, classes unidas em um mesmo '.h'.
 - **Quanto tempo levou pra fazer a atividade**:
-  - Em torno de 6 horas.
+    - Em torno de 6 horas.
 
   ## [Atividade 13 - Twitter](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/16_Twitter)
 **Resumo e Observações**: Atividade concluída com sucesso.
@@ -155,8 +155,8 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Com quem e como você fez**:
   - Fiz só, com base nos conhecimetos adquiritos em sala e pesquisas na web.
 - **O que aprendeu e sabe fazer**:
-  - Pratiquei os recursos que aprendi durante o semestre;
+  - Pratiquei os recursos que aprendi durante o semestre.
 - **O que tem dificuldade ainda**:
-  - Preciso pesquisar herdar uma classe 'template'.
+  - Preciso pesquisar como herdar uma classe 'template'.
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 8 horas.
