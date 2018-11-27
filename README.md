@@ -141,13 +141,13 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 **Resumo e Observações**: Concluído conforme solicitado, separei os arquivos e fiz o tratamento de erros comuns.
 
 - **Com quem e como você fez**:
-    - Fiz só, com base nos conhecimentos adquiridos em sala e algumas pesquisas no site cppreference.com.
+  - Fiz só, com base nos conhecimentos adquiridos em sala e algumas pesquisas no site cppreference.com.
 - **O que aprendeu e sabe fazer**:
-    - Consegui separar os arquivos em '.h' e '.cpp', tudo funcionando como esperado. Em relação ao polimorfismo e herança de classes foi tranquilo. Uma ou outra travada, mas consegui resolver.
+  - Consegui separar os arquivos em '.h' e '.cpp', tudo funcionando como esperado. Em relação ao polimorfismo e herança de classes foi tranquilo. Uma ou outra travada, mas consegui resolver.
 - **O que tem dificuldade ainda**:
-    - Não sei se a separação em arquivos foi feita da forma correta. Ainda não tenho segurança sobre quando precisarei de mais de um cpp, ou se devo deixar, em algum caso, classes unidas em um mesmo '.h'.
+  - Não sei se a separação em arquivos foi feita da forma correta. Ainda não tenho segurança sobre quando precisarei de mais de um cpp, ou se devo deixar, em algum caso, classes unidas em um mesmo '.h'.
 - **Quanto tempo levou pra fazer a atividade**:
-    - Em torno de 6 horas.
+  - Em torno de 6 horas.
 
   ## [Atividade 13 - Twitter](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/16_Twitter)
 **Resumo e Observações**: Atividade concluída com sucesso.
