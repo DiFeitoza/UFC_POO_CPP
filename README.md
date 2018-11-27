@@ -77,7 +77,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 8 horas.
 
-## [Atividade 07 - Agiota+Repositorio](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/08_Agiota%2BReposit%C3%B3rio)
+## [Atividade 07 - Agiota + Repositório](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/08_Agiota%2BReposit%C3%B3rio)
 **Resumo e Observações**: A única dificuldade foi em relação às chaves para transações, pois precisavam manter o vínculo com o mesmo cliente e ao mesmo tempo ser única. Depois percebi que poderia usar a string do id da transação para fazer isso.
 
 - **Com quem e como você fez**:
@@ -109,7 +109,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **O que aprendeu e sabe fazer**:
   - Fixei os conteúdos de herança e polimorfismo. Este projeto permitiu pôr em prática novos conhecimentos; revisei muito do que vinha fazendo em trabalhos anteriores!
 - **O que tem dificuldade ainda**:
-  - Sem muitas difuculdades, porém com algumas dúvidas para esclarecer em sala. Ainda não senti a necessidade de usar sobrecarga de operadores, por consequência não tenho segurança sobre o uso.
+  - Sem muitas dificuldades, porém com algumas dúvidas para esclarecer em sala. Ainda não senti a necessidade de usar sobrecarga de operadores, por consequência não tenho segurança sobre o uso.
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 10 horas.
 
@@ -125,15 +125,15 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 4 horas.
 
-## [Atividade 11 - Associacao entre Classes](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/14_Associacao_entre_classes)
-**Resumo e Observações**: Implementei tudo a partir do primeiro código disponibiizado. Criei um map<Users*> e gerenciei os pacientes e medicos fazendo polimorfismo de classes usando o método dynamic_cast.
+## [Atividade 11 - Associação entre Classes](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/14_Associacao_entre_classes)
+**Resumo e Observações**: Implementei tudo a partir do primeiro código disponibilizado. Criei um map<Users*> e gerenciei os pacientes e médicos fazendo polimorfismo de classes usando o método dynamic_cast.
 
 - **Com quem e como você fez**:
   - Fiz só, com base nos conhecimentos adquiridos em sala e em pesquisas pela internet.
 - **O que aprendeu e sabe fazer**:
   - Pratiquei herança, destrutores, o conceito de classes abstratas, polimorfismo, tratamento de map e vector e separação de arquivos em '.h' e '.cpp'.
 - **O que tem dificuldade ainda**:
-  - Sobrecarga de operadores, separação em arquivos somado a associação de classes e o uso do "const" nos métodos das classes que vieram implementadas no arquivo orginal.
+  - Sobrecarga de operadores, separação em arquivos somado a associação de classes e o uso do "const" nos métodos das classes que vieram implementadas no arquivo original.
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 12 horas.
 
@@ -141,9 +141,9 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 **Resumo e Observações**: Concluído conforme solicitado, separei os arquivos e fiz o tratamento de erros comuns.
 
 - **Com quem e como você fez**:
-    - Fiz só, com base nos conhecimetos adquiritos em sala e algumas pesquisas no site cppreference.com.
+    - Fiz só, com base nos conhecimentos adquiridos em sala e algumas pesquisas no site cppreference.com.
 - **O que aprendeu e sabe fazer**:
-    - Consegui separar os arquivos em '.h' e '.cpp', tudo funcionando como esperado. Em relação ao poliformismo e herança de classes foi tranquilo. Uma ou outra travada, mas consegui resolver.
+    - Consegui separar os arquivos em '.h' e '.cpp', tudo funcionando como esperado. Em relação ao polimorfismo e herança de classes foi tranquilo. Uma ou outra travada, mas consegui resolver.
 - **O que tem dificuldade ainda**:
     - Não sei se a separação em arquivos foi feita da forma correta. Ainda não tenho segurança sobre quando precisarei de mais de um cpp, ou se devo deixar, em algum caso, classes unidas em um mesmo '.h'.
 - **Quanto tempo levou pra fazer a atividade**:
@@ -153,7 +153,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 **Resumo e Observações**: Atividade concluída com sucesso.
 
 - **Com quem e como você fez**:
-  - Fiz só, com base nos conhecimetos adquiritos em sala e pesquisas na web.
+  - Fiz só, com base nos conhecimetos adquiridos em sala e pesquisas na web.
 - **O que aprendeu e sabe fazer**:
   - Pratiquei os recursos que aprendi durante o semestre.
 - **O que tem dificuldade ainda**:
