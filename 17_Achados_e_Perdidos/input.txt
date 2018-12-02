@@ -13,8 +13,8 @@ logout
 login pequeno jerry123
 addPerdido Bicicleta : Quixadá, Campus UFC, Estacionamento. : Marca Monark, Cor Vermelha, Tipo Carga.
 addAchado Notebook : Quixadá, UFC, Restaurante Universitário. : Asus, Azul e Dourado, Adesivos.
-rmUser
+rmUser jerry123
 logged
 login pequeno jerry123
-showAll
+
 manual

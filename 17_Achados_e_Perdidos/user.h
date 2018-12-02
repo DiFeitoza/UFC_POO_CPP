@@ -18,8 +18,8 @@ public:
     ~User(){}
 
     string getId(){ return id; }
-    auto& getVecLost(){ return v_lost; }
-    auto& getVecFound(){ return v_found; }
+    vector<Thing*> getVecLost(){ return v_lost; }
+    vector<Thing*> getVecFound(){ return v_found; }
         
     bool verifyPass(string pass){
         return this->pass == pass;

@@ -23,13 +23,12 @@ public:
             return true;
         } return false;
     }
-    bool rem(string key){
-        if(exists(key)){
-            data.erase(key);
-            return true;
-        } return false;
+    void rem(string key){
+        if(!exists(key))
+            throw "entrada nao existe";
+        data.erase(key);
     }
-    T& getT(string key, string str = ""){
+    T getT(string key, string str = ""){
         auto item = data.find(key);
         if(item != data.end())
             return item->second;
@@ -47,39 +46,41 @@ public:
             vecK.push_back(par.first);
         return vecK;
     }
-    static void toString(T t){
+    string toString(){
         stringstream ss;
-        ss << "li um item do repositório";
-        cout << ss.str();
+        for(auto key : this->getKeys())
+            ss << key + " ";
+        ss << "\n";
+        return ss.str();
     }
 };
 
 class GerLogin{
-    User * current = nullptr;
+    User ** current = nullptr;
     Repository<User*> * r_user;
 public:
-    GerLogin(Repository<User*> &r_user)
-        : r_user(&r_user){}
+    GerLogin(User ** current, Repository<User*> * r_user)
+        : current(current), r_user(r_user){}
 
-    User& getCurrent(){
-        if(current == nullptr)
-            throw "efetue login";
-        return *current;
-    }
-    User* login(string id, string pass){
-        if(current != nullptr)
+    void login(string id, string pass){
+        if(*current != nullptr)
             throw "ja existe alguem logado";
         User * user = r_user->getT(id);
         if(!user->verifyPass(pass))
             throw "senha invalida";
-        current = user;
-        return current;
+        *current = user;
     }
     void logout(){
-        if(current == nullptr)
+        if(*current == nullptr)
             throw "ninguem logado";
-        current = nullptr;
+        *current = nullptr;
         return;
+    }
+    string toString(){
+        stringstream ss;
+        for(auto key : r_user->getKeys())
+            ss << key;
+        return ss.str();
     }
 };
 
@@ -88,18 +89,17 @@ class Sistema{
     Repository<User*> r_user;
 	Repository<Thing*> r_lost;
     Repository<Thing*> r_found;
-    GerLogin g_login = { r_user };
+    GerLogin * g_login = new GerLogin { &current, &r_user };
 public:
     void login(string id, string pass){
         if(current != nullptr)
             throw "efetue logout";
-        current = g_login.login(id, pass);
+        g_login->login(id, pass);
     }
     void logout(){
         if(current == nullptr)
             throw "efetue login";
-        g_login.logout();
-        current = nullptr;
+        g_login->logout();
     }
     string logged(){
         if(current == nullptr)
@@ -117,17 +117,17 @@ public:
         User * user = new User(id, pass);
         r_user.add(id, user);
     } 
-    void rmUser(string id, string pass){
+    void rmUser(string pass){
         if(current == nullptr)
             throw "efetue login";
-        for(auto & lost : current->getVecLost())
+        if(!current->verifyPass(pass))
+            throw "senha incorreta";
+        for(auto lost : current->getVecLost())
             r_lost.rem(lost->getId());
-        for(auto & found : current->getVecFound())
+        for(auto found : current->getVecFound())
             r_found.rem(found->getId());
-        g_login.logout();            
-        r_user.rem(id);
-        delete current;
-        current = nullptr;
+        r_user.rem(current->getId());
+        g_login->logout();
     }        
     void addPerdido(string id, string cat, string des, string loc){
         if(current == nullptr)
@@ -157,7 +157,7 @@ public:
         if(current == nullptr)
             throw "efetue login";
         return current->showFound();
-    }        
+    }       
 };
 
 class Controller {
@@ -176,10 +176,10 @@ public:
 				sis.addUser(id, password);
                 out << "Usuario cadastrado com sucesso!";
             }
-            else if(op == "rmUser"){
-				string id, password;
-				in >> id >> password;
-				sis.rmUser(id, password);
+            else if(op == "rmUser"){ //_pass
+				string password;
+				in >> password;
+				sis.rmUser(password);
                 out << "Removido com sucesso e deslogado!";
             }
             else if(op == "login"){
