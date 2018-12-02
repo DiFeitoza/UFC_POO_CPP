@@ -159,15 +159,13 @@ public:
         return current->showFound();
     }
 
-    int contsubstr(string s_lost, string s_found){
+    int contsubstr(string s_found, string s_lost){
         int cont = 0;
-        stringstream ss_lost {s_lost};
+        stringstream ss_found {s_found};
         string word;
-        while(ss_lost >> word)
-            if(s_found.find(word) != string::npos){
+        while(ss_found >> word)
+            if(s_lost.find(word) != string::npos)
                 cont++;
-                cout << "achei\n";
-            }
         return cont;
     }
 

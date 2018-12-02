@@ -38,7 +38,6 @@ public:
         return true;
     }
     void addLost(Thing* thing){
-        cout << thing->getId();
         v_lost.push_back(thing);
     }
     void addFound(Thing* thing){
@@ -47,15 +46,15 @@ public:
     string showLost(){
         stringstream ss;
         ss << "#Perdidos\n";
-        for(auto found : v_found)
-            ss << found->toString();
+        for(auto lost : v_lost)
+            ss << lost->toString();
         return ss.str();
     } 
     string showFound(){
         stringstream ss;
         ss << "#Achados\n";
-        for(auto lost : v_lost)
-            ss << lost->toString();
+        for(auto found : v_found)
+            ss << found->toString();
         return ss.str();
     }    
     string toString(){
