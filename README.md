@@ -23,14 +23,14 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Com quem e como você fez**:
   - Fiz só e com base na estrutura da atividade Cinema feita em sala.
 - **O que aprendeu e sabe fazer**:
-  - Consegui entender melhor a ideia de construtor e destrutor, também a importância de liberar a memória usando alocação dinâmica e apontando para "nullptr" quando não for mais necessária.
+  - Consegui entender melhor a ideia de construtor e destrutor, também a importância de liberar a memória usando alocação dinâmica e apontando para 'nullptr' quando não for mais necessária.
 - **O que tem dificuldade ainda**:
   - Trabalhar com fluxos de string usando a biblioteca 'sstream'. Na próxima atividade proposta será necessário este conhecimento.
 - **Quanto tempo levou pra fazer a atividade**:
   - Entre 8 e 10 horas, pois tive alguns problemas com a IDE, Git e lidar com laços usando o 'nullptr'.
 
 ## [Atividade 03 - Contato Telefônico](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/05_Contato)
-**Resumo e Observações**: Fiz alterações para que o projeto leia os testes direto do arquivo "contatos.txt" em vez de ter que digitá-los ou colá-los no terminal. Caso queira testar manualmente, basta adicionar "manual" em uma das linhas do arquivo "contatos.txt".
+**Resumo e Observações**: Fiz alterações para que o projeto leia os testes direto do arquivo 'contatos.txt' em vez de ter que digitá-los ou colá-los no terminal. Caso queira testar manualmente, basta adicionar 'manual' em uma das linhas do arquivo 'contatos.txt'.
 
 - **Com quem e como você fez**:
   - Fiz só e com base na estrutura feita em sala.
@@ -66,7 +66,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
   - Em torno de 15 horas.
 
 ## [Atividade 06 - Repositório I](https://github.com/DiFeitoza/UFC_POO_CPP/tree/master/10_Reposit%C3%B3rio_I)
-**Resumo e Observações**: Dessa vez eu digitei todo o código, não utilizei o recurso "copiar/colar". Realmente fluiu melhor.
+**Resumo e Observações**: Dessa vez eu digitei todo o código, não utilizei o recurso 'copiar/colar'. Realmente fluiu melhor.
 
 - **Com quem e como você fez**:
   - Fiz só, com base nos conhecimentos adquiridos em sala e em pesquisas pela internet.
@@ -83,7 +83,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Com quem e como você fez**:
   - Fiz só, com base nos conhecimentos adquiridos em sala e em pesquisas pela internet. Reaproveitei a estrutura do Repositório I.
 - **O que aprendeu e sabe fazer**:
-  - Apliquei os conhecimentos do Repositório I, percebi que quando eu tiver que usar várias chaves para o mesmo "cliente" posso usar um inteiro e sua string.
+  - Apliquei os conhecimentos do Repositório I, percebi que quando eu tiver que usar várias chaves para o mesmo 'cliente' posso usar um inteiro e sua string.
 - **O que tem dificuldade ainda**:
   - Nesse assunto está tudo bem.
 - **Quanto tempo levou pra fazer a atividade**:
@@ -95,9 +95,9 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Com quem e como você fez**:
   - Fiz só, com base nos conhecimentos adquiridos em sala e em pesquisas pela internet.
 - **O que aprendeu e sabe fazer**:
-  - Aprendi a fazer o uso do sistema de login que não havia ficado claro com a atividade "segredos". Entendi a ideia de ter um usuário "atual" e usar nullptr para saber se estou logado ou não.
+  - Aprendi a fazer o uso do sistema de login que não havia ficado claro com a atividade 'segredos'. Entendi a ideia de ter um usuário 'atual' e usar nullptr para saber se estou logado ou não.
 - **O que tem dificuldade ainda**:
-  - Não consegui usar o recurso "friend" para referenciar um método específico de outra classe. Devido à dificuldade, referenciei a classe como amiga.
+  - Não consegui usar o recurso 'friend' para referenciar um método específico de outra classe. Devido à dificuldade, referenciei a classe como amiga.
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 8 horas.
 
@@ -133,7 +133,7 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **O que aprendeu e sabe fazer**:
   - Pratiquei herança, destrutores, o conceito de classes abstratas, polimorfismo, tratamento de map e vector e separação de arquivos em '.h' e '.cpp'.
 - **O que tem dificuldade ainda**:
-  - Sobrecarga de operadores, separação em arquivos somado a associação de classes e o uso do "const" nos métodos das classes que vieram implementadas no arquivo original.
+  - Sobrecarga de operadores, separação em arquivos somado a associação de classes e o uso do 'const' nos métodos das classes que vieram implementadas no arquivo original.
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 12 horas.
 
@@ -143,9 +143,9 @@ Professor: David Sena - [Repositório da disciplina](https://github.com/senapk/p
 - **Com quem e como você fez**:
   - Fiz só, com base nos conhecimentos adquiridos em sala e algumas pesquisas no site cppreference.com.
 - **O que aprendeu e sabe fazer**:
-  - Consegui separar os arquivos em ".h" e ".cpp", tudo funcionando como esperado. Em relação ao polimorfismo e herança de classes foi tranquilo. Uma ou outra travada, mas consegui resolver.
+  - Consegui separar os arquivos em '.h' e '.cpp', tudo funcionando como esperado. Em relação ao polimorfismo e herança de classes foi tranquilo. Uma ou outra travada, mas consegui resolver.
 - **O que tem dificuldade ainda**:
-  - Não sei se a separação em arquivos foi feita da forma correta. Ainda não tenho segurança sobre quando precisarei de mais de um cpp, ou se devo deixar, em algum caso, classes unidas em um mesmo ".h".
+  - Não sei se a separação em arquivos foi feita da forma correta. Ainda não tenho segurança sobre quando precisarei de mais de um cpp, ou se devo deixar, em algum caso, classes unidas em um mesmo '.h'.
 - **Quanto tempo levou pra fazer a atividade**:
   - Em torno de 6 horas.
 

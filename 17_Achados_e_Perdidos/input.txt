@@ -1,0 +1,20 @@
+addUser gigante isavelethiliana
+addUser pequeno jerry123
+addUser pacman comecome123
+login gigante isavelethiliana
+logged
+changePass isavelethiliana tom123
+logout
+login gigante tom123
+addPerdido Notebook 14" : Quixadá, Campus UFC, Restaurante Universitário. : Marca Asus, Cor Azul, Novo, com capa.
+addAchado Estojo : Quixadá, Campus UFC, Espaço de convivência. : Marca tilibra, Cor preto, canetas, fone de ouvido.
+showAll
+logout
+login pequeno jerry123
+addPerdido Bicicleta : Quixadá, Campus UFC, Estacionamento. : Marca Monark, Cor Vermelha, Tipo Carga.
+addAchado Notebook : Quixadá, UFC, Restaurante Universitário. : Asus, Azul e Dourado, Adesivos.
+rmUser
+logged
+login pequeno jerry123
+showAll
+manual
