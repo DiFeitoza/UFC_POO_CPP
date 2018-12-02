@@ -1,7 +1,8 @@
 #include <iostream>
 using namespace std;
 
-class Var{
+// OK
+/* class Var{
 public:
     int ** name = nullptr;
     
@@ -37,7 +38,7 @@ main(){
         cout << "agora sou nulo, main *i";
 
     return 0;
-}
+} */
 
 // OK
 /* class Var{

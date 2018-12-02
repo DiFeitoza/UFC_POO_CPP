@@ -129,17 +129,17 @@ public:
         r_user.rem(current->getId());
         g_login->logout();
     }        
-    void addPerdido(string id, string cat, string des, string loc){
+    void addLost(string id, string cat, string des, string loc){
         if(current == nullptr)
-            throw "efetue login";        
-        Thing * perdido = new BemMaterial(id, cat, loc, des);
+            throw "efetue login";
+        Thing * perdido = new BemMaterial(id, cat, loc, des, &current);
         r_lost.add(id, perdido);
         current->addLost(perdido);
     }
-    void addAchado(string id, string cat, string des, string loc){
+    void addFound(string id, string cat, string des, string loc){
         if(current == nullptr)
-            throw "efetue login";        
-        Thing * achado = new BemMaterial(id, cat, loc, des);
+            throw "efetue login";
+        Thing * achado = new BemMaterial(id, cat, loc, des, &current);
         r_found.add(id, achado);
         current->addFound(achado);
     }    
@@ -193,12 +193,13 @@ public:
 
     string matchFound(string id){
         stringstream ss;
-        for(auto s_id_match : current->getFound(id)->getMatches()){
-            ss << r_lost.getT(s_id_match)->toString();
-            ss << "\n";
+        auto v_id_match = current->getFound(id)->getMatches();
+        if(v_id_match.empty())
+            throw "Ainda não encontramos o possível dono";
+        for(auto s_id_match : v_id_match){
+            ss << r_lost.getT(s_id_match)->getOwner()->getId() << "\n";
+            ss << r_lost.getT(s_id_match)->toString() << "\n";
         }
-        if(current->getFound(id)->getMatches().empty())
-            ss << "vazio\n";
         return ss.str();
     }
 };
@@ -244,7 +245,7 @@ public:
                 sis.changePass(old, newPass);
                 out << "Senha alterada com sucesso!";
             }
-            else if(op == "addPerdido" || op == "addAchado"){
+            else if(op == "addLost" || op == "addFound"){
                 string category, description, lost_location;
                 /* cout << "Qual a categoria do bem?"; */
                 getline(in, category, ':');
@@ -254,10 +255,10 @@ public:
                 /* cout << "Como é este bem? tem algo que o torna único?"
                 << "\nex: cor, tamanho, marca, modelo, raça, avaria"; */
                 getline(in, description);
-                if(op == "addPerdido")
-                    sis.addPerdido(to_string(cont), category, description, lost_location);
+                if(op == "addLost")
+                    sis.addLost(to_string(cont), category, description, lost_location);
                 else
-                    sis.addAchado(to_string(cont), category, description, lost_location);
+                    sis.addFound(to_string(cont), category, description, lost_location);
                 cont++;
             }
             else if(op == "showAll"){
@@ -322,8 +323,16 @@ main(){
     depois pelo tipo, pelo local, e por fim por caracteristicas.
     Achar a melhor forma de comparar e fazer o match;
 
-    2. Outras categorias, como os Pets (possuem nome e raça)..
+    2. Quem cadastra perdido diz intervalo de perda, maximo quinze dias atras.
+
+    3. Quem registra achado, automaticamente registra o dia do achado.
+
+    4. Outras categorias, como os Pets (possuem nome e raça).
+
+    5. Validar o match;
+
+    6. Iniciar chat.
 
     DÚVIDAS
-    1. quem deve guardar a compatibilidade? um map ou o próprio item? (criar uma classe MatchCompare)
+    1. quem deve guardar a compatibilidade? um map ou o próprio item? (criar uma classe MatchCompare).
 */
