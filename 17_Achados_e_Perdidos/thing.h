@@ -7,7 +7,7 @@ using namespace std;
 class Thing{
 protected:
 	string id, category, where_found, description;
-	int cont;
+	vector<string> v_matches;
 public:
 	Thing(string id, string cat, string where, string desc)
 		: id(id), category(cat), where_found(where), description(desc){}
@@ -16,6 +16,8 @@ public:
 	virtual string getCategory() = 0;
 	virtual string getWhereFound() = 0;
 	virtual string getDescription() = 0;
+	virtual vector<string> getMatches() = 0;
+	virtual void setMatch(string match_id) = 0;
 	virtual string toString() = 0;
 };
 
@@ -28,6 +30,11 @@ public:
 	virtual string getCategory(){ return category; }
 	virtual string getWhereFound(){ return where_found; }
 	virtual string getDescription(){ return description; }
+	virtual vector<string> getMatches(){ return v_matches; }
+
+	virtual void setMatch(string match_id){
+		v_matches.push_back(match_id);
+	}
 
 	virtual string toString(){
 		stringstream ss;

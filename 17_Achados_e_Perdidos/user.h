@@ -20,6 +20,13 @@ public:
     string getId(){ return id; }
     vector<Thing*> getVecLost(){ return v_lost; }
     vector<Thing*> getVecFound(){ return v_found; }
+    
+    Thing* getFound(string id){
+        for(auto &found : v_found)
+            if(id == found->getId())
+                return found;
+        throw "indice nao existe";
+    }
         
     bool verifyPass(string pass){
         return this->pass == pass;

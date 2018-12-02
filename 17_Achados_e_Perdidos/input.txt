@@ -16,5 +16,10 @@ addAchado Notebook : Quixadá, UFC, Restaurante Universitário. : Asus, Azul e D
 rmUser jerry123
 logged
 login pequeno jerry123
-
+login pacman comecome123
+addPerdido Bicicleta : Quixadá, Campus UFC, Estacionamento. : Marca Monark, Cor Vermelha, Tipo Carga.
+addAchado Notebook : Quixadá, UFC, Restaurante Universitário. : Asus, Azul e Dourado, Adesivos.
+match
+showLost
+matchFound 5
 manual

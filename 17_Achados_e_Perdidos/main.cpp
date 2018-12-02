@@ -36,7 +36,7 @@ public:
     }
     vector<T> getValues(){
         vector<T> vecT;
-        for(auto& par : data)
+        for(auto &par : data)
             vecT.push_back(par.second);
         return vecT;
     }
@@ -157,7 +157,52 @@ public:
         if(current == nullptr)
             throw "efetue login";
         return current->showFound();
-    }       
+    }
+
+    int contsubstr(string s_lost, string s_found){
+        int cont = 0;
+        stringstream ss_lost {s_lost};
+        string word;
+        while(ss_lost >> word)
+            if(s_found.find(word) != string::npos){
+                cont++;
+                cout << "achei\n";
+            }
+        return cont;
+    }
+
+    void match(){
+        vector<Thing*> v_found = r_found.getValues();        
+        vector<Thing*> v_lost = r_lost.getValues();
+
+        for(auto &found : v_found){
+            int bighest = 0;
+            string match_id = "";
+
+            for(auto &lost : v_lost){
+                int cont = 0;
+                cont += contsubstr(found->getCategory(), lost->getCategory());
+                cont += contsubstr(found->getWhereFound(), lost->getWhereFound());
+                cont += contsubstr(found->getDescription(), lost->getDescription());
+                if(cont > bighest){
+                    bighest = cont;
+                    match_id = lost->getId();
+                }
+            }
+            found->setMatch(match_id);
+        }
+    }
+
+    string matchFound(string id){
+        stringstream ss;
+        for(auto s_id_match : current->getFound(id)->getMatches()){
+            ss << r_lost.getT(s_id_match)->toString();
+            ss << "\n";
+        }
+        if(current->getFound(id)->getMatches().empty())
+            ss << "vazio\n";
+        return ss.str();
+    }
 };
 
 class Controller {
@@ -226,6 +271,14 @@ public:
             else if(op == "showFound"){
                 out << sis.showFound();
             }
+            else if(op == "match"){
+                sis.match();
+            }
+            else if(op == "matchFound"){ //_idItem
+                string id;
+                in >> id;
+                out << sis.matchFound(id);
+            }
             else
                 cout << "comando invalido" << endl;
         }
@@ -263,3 +316,16 @@ main(){
     system("pause");
     return 0;
 }
+
+/*
+    FALTA FAZER
+    1. Implementar data de encontro/perda do bem e de registro
+    com isso verificar a compatibilidade pela data primeiro
+    depois pelo tipo, pelo local, e por fim por caracteristicas.
+    Achar a melhor forma de comparar e fazer o match;
+
+    2. Outras categorias, como os Pets (possuem nome e raça)..
+
+    DÚVIDAS
+    1. quem deve guardar a compatibilidade? um map ou o próprio item? (criar uma classe MatchCompare)
+*/
