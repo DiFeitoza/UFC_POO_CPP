@@ -347,11 +347,9 @@ public:
 				else if(line == "end")
 					break;
 				cout << "$" << line << endl;
-                /* if(shell(line) == "")
-				    cout << "\n";
-                else
-                    cout << shell(line) + "\n\n"; */
-                cout << shell(line) + "\n\n";
+                line = shell(line);
+                if(line == "") cout << "\n";
+                else cout << line + "\n\n";
 			}
 			arquivo.close();
 		} else
