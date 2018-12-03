@@ -131,6 +131,7 @@ public:
         for(auto found : current->getVecFound())
             r_found.rem(found->getId());
         r_user.rem(current->getId());
+        delete current;
         g_login->logout();
     }        
     void addLost(string id, string cat, string des, string loc){

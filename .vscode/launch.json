@@ -5,17 +5,41 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "(gdb) Bash on Windows Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/17_Achados_e_Perdidos/main.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/17_Achados_e_Perdidos/",
+            "environment": [],
+            "externalConsole": true,
+            "pipeTransport": {
+                "debuggerPath": "C:/MinGW/bin/gdb.exe",
+                "pipeProgram": "C:/MinGW/msys/1.0/bin/bash.exe",
+                "pipeArgs": ["-c"],
+                "pipeCwd": ""
+            },
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/17_Achados_e_Perdidos/main.exe",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/17_Achados_e_Perdidos/",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
-            "miDebuggerPath": "C:\\MinGW\\bin\\gdb.exe",
+            "miDebuggerPath": "C:/MinGW/bin/gdb.exe",
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for gdb",

@@ -16,7 +16,7 @@ protected:
 public:
     User(string id, string pass)
         : id(id), pass(pass){}
-    ~User(){}
+    virtual ~User(){}
 
     virtual string getId(){ return id; }
     virtual vector<Thing*> getVecLost(){ return v_lost; }
