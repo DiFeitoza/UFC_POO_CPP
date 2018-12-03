@@ -28,7 +28,6 @@ public:
                 return found;
         throw "indice nao existe";
     }
-        
     virtual bool verifyPass(string pass){
         return this->pass == pass;
     }

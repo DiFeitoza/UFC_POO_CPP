@@ -73,7 +73,6 @@ public:
         if(*current == nullptr)
             throw "ninguem logado";
         *current = nullptr;
-        return;
     }
     string toString(){
         stringstream ss;
@@ -151,12 +150,14 @@ public:
     string showPlaces(string locale){
         stringstream ss;
         int cont = 0;
-        for(auto user : r_user.getValues())
-            if(FisicPlace * p_place = dynamic_cast<FisicPlace*>(user))
+        for(auto user : r_user.getValues()){
+            if(FisicPlace * p_place = dynamic_cast<FisicPlace*>(user)){
                 if(p_place->getAndress().find(locale) != string::npos){
                     ss << p_place->toString() + "\n";
                     cont++;
                 }
+            }
+        } //remover
         if(cont == 0)
             throw "Nao ha Pontos Fisicos cadastratos em: " + locale;                    
         string s = ss.str();
@@ -321,9 +322,8 @@ public:
                 out << sis.showPlaces(locale);
             }
             else if(op == "showAllPlaces"){
-                string locale, aux;
                 out << sis.showAllPlaces();
-            }            
+            }
             else
                 cout << "comando invalido" << endl;
         }
@@ -331,7 +331,7 @@ public:
 	    catch(char const* e){ out << "  fail: " << e; }
 	    catch(...){ out << "  fail: ocorreu uma excecao"; }
 	    return out.str();
-	} 
+	}
 
 	void exec(){
 		ifstream arquivo ("input.txt");
@@ -347,10 +347,11 @@ public:
 				else if(line == "end")
 					break;
 				cout << "$" << line << endl;
-                if(shell(line) != "")
-				    cout << shell(line) + "\n\n";
+                /* if(shell(line) == "")
+				    cout << "\n";
                 else
-                    cout << "\n";
+                    cout << shell(line) + "\n\n"; */
+                cout << shell(line) + "\n\n";
 			}
 			arquivo.close();
 		} else

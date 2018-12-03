@@ -3,8 +3,6 @@ addUser pequeno jerry123
 addUser pacman comecome123
 addPlace UFC|qx2018|07.272.636/0001-31|Av. Cedro Livre, Quixada, Ceara, Brasil|(85) 3366 7301
 login gigante isavelethiliana
-manual
-logged
 changePass isavelethiliana tom123
 logout
 login gigante tom123
