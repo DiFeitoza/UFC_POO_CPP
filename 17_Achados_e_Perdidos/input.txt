@@ -7,7 +7,7 @@ changePass isavelethiliana tom123
 logout
 login gigante tom123
 addLost Notebook 14"|Quixada, Campus UFC, Restaurante Universitario.|Marca Asus, Cor Azul, Novo, com capa.
-addFound Estojo|Quixada, Campus UFC, Espaço de convivencia.|Marca tilibra, Cor preto, canetas, fone de ouvido.
+addFound Estojo|Quixada, Campus UFC, Espaco de convivencia.|Marca tilibra, Cor preto, canetas, fone de ouvido.
 showItens
 logout
 login pequeno jerry123

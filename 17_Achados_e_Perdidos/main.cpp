@@ -150,18 +150,16 @@ public:
     string showPlaces(string locale){
         stringstream ss;
         int cont = 0;
-        for(auto user : r_user.getValues()){
-            if(FisicPlace * p_place = dynamic_cast<FisicPlace*>(user)){
+        for(auto user : r_user.getValues())
+            if(FisicPlace * p_place = dynamic_cast<FisicPlace*>(user))
                 if(p_place->getAndress().find(locale) != string::npos){
                     ss << p_place->toString() + "\n";
                     cont++;
                 }
-            }
-        } //remover
         if(cont == 0)
             throw "Nao ha Pontos Fisicos cadastratos em: " + locale;                    
         string s = ss.str();
-        return s.substr(0, s.length()-2);
+        return s.substr(0, s.length()-1);
     }
     string showAllPlaces(){
         stringstream ss;
@@ -169,7 +167,7 @@ public:
             if(FisicPlace * p_place = dynamic_cast<FisicPlace*>(user))
                 ss << p_place->toString() + "\n";
         string s = ss.str();
-        return s.substr(0, s.length()-2);
+        return s.substr(0, s.length()-1);
     }    
     int contsubstr(string s_found, string s_lost){
         int cont = 0;
