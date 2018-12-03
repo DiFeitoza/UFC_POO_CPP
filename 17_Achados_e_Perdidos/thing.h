@@ -44,10 +44,10 @@ public:
 
 	virtual string toString(){
 		stringstream ss;
-		ss << "id: " + id + "\n"
-		+ "Categoria: " + category + "\n"
-		+ "Descrição: " + description + "\n"
-		+ "Localizado: " + where_found;
+		ss << "  id: " + id + "\n"
+		+ "  Categoria: " + category + "\n"
+		+ "  Descricao: " + description + "\n"
+		+ "  Localizado: " + where_found;
 		return ss.str();
 	}
 };

@@ -32,7 +32,7 @@ public:
         auto item = data.find(key);
         if(item != data.end())
             return item->second;
-        throw "" + str + " " + key + " nao existe";
+        throw key + " nao existe";
     }
     vector<T> getValues(){
         vector<T> vecT;
@@ -50,7 +50,6 @@ public:
         stringstream ss;
         for(auto key : this->getKeys())
             ss << key + " ";
-        ss << "\n";
         return ss.str();
     }
 };
@@ -116,7 +115,13 @@ public:
             throw "efetue logout";
         User * user = new User(id, pass);
         r_user.add(id, user);
-    } 
+    }
+    void addPlace(string id, string pass, string cnpj, string andr, string contc){
+        if(current != nullptr)
+            throw "efetue logout";        
+        User * user = new FisicPlace(id, pass, cnpj, andr, contc);
+        r_user.add(id, user);
+    }
     void rmUser(string pass){
         if(current == nullptr)
             throw "efetue login";
@@ -142,23 +147,29 @@ public:
         Thing * achado = new BemMaterial(id, cat, loc, des, &current);
         r_found.add(id, achado);
         current->addFound(achado);
+    }
+    string showPlaces(string locale){
+        stringstream ss;
+        int cont = 0;
+        for(auto user : r_user.getValues())
+            if(FisicPlace * p_place = dynamic_cast<FisicPlace*>(user))
+                if(p_place->getAndress().find(locale) != string::npos){
+                    ss << p_place->toString() + "\n";
+                    cont++;
+                }
+        if(cont == 0)
+            throw "Nao ha Pontos Fisicos cadastratos em: " + locale;                    
+        string s = ss.str();
+        return s.substr(0, s.length()-2);
+    }
+    string showAllPlaces(){
+        stringstream ss;
+        for(auto user : r_user.getValues())
+            if(FisicPlace * p_place = dynamic_cast<FisicPlace*>(user))
+                ss << p_place->toString() + "\n";
+        string s = ss.str();
+        return s.substr(0, s.length()-2);
     }    
-    string showAll(){
-        if(current == nullptr)
-            throw "efetue login";
-        return current->toString();
-    }
-    string showLost(){
-        if(current == nullptr)
-            throw "efetue login";
-        return current->showLost();
-    }
-    string showFound(){
-        if(current == nullptr)
-            throw "efetue login";
-        return current->showFound();
-    }
-
     int contsubstr(string s_found, string s_lost){
         int cont = 0;
         stringstream ss_found {s_found};
@@ -168,7 +179,6 @@ public:
                 cont++;
         return cont;
     }
-
     void match(){
         vector<Thing*> v_found = r_found.getValues();        
         vector<Thing*> v_lost = r_lost.getValues();
@@ -190,17 +200,33 @@ public:
             found->setMatch(match_id);
         }
     }
-
     string matchFound(string id){
+        if(current == nullptr)
+            throw "efetue login";
         stringstream ss;
         auto v_id_match = current->getFound(id)->getMatches();
         if(v_id_match.empty())
             throw "Ainda não encontramos o possível dono";
         for(auto s_id_match : v_id_match){
-            ss << r_lost.getT(s_id_match)->getOwner()->getId() << "\n";
-            ss << r_lost.getT(s_id_match)->toString() << "\n";
+            ss << "user: " << r_lost.getT(s_id_match)->getOwner()->getId() << "\n";
+            ss << r_lost.getT(s_id_match)->toString();
         }
         return ss.str();
+    }
+    string showItens(){
+        if(current == nullptr)
+            throw "efetue login";
+        return current->toString();
+    }
+    string showLost(){
+        if(current == nullptr)
+            throw "efetue login";
+        return current->showLost();
+    }
+    string showFound(){
+        if(current == nullptr)
+            throw "efetue login";
+        return current->showFound();
     }
 };
 
@@ -210,15 +236,26 @@ class Controller {
 public:
     string shell(string line){
         stringstream in(line);
-        stringstream out;
+        stringstream out {""};
         string op;
         in >> op;
+        in.get(); //long pos = in.tellg(); in.seekg(pos+1);
         try{
             if(op == "addUser"){
 				string id, password;
 				in >> id >> password;
 				sis.addUser(id, password);
                 out << "Usuario cadastrado com sucesso!";
+            }
+            else if(op == "addPlace"){
+                string id, pass, cnpj, andress, contact;
+                getline(in, id, '|');
+                getline(in, pass, '|');
+                getline(in, cnpj, '|');
+                getline(in, andress, '|');
+                getline(in, contact, '|');
+                sis.addPlace(id, pass, cnpj, andress, contact);
+                out << "Ponto Fisico cadastrado com sucesso!";
             }
             else if(op == "rmUser"){ //_pass
 				string password;
@@ -235,7 +272,7 @@ public:
             else if(op == "logout"){
                 sis.logout();
                 out << "Deslogado com sucesso!";
-            }            
+            }           
             else if(op == "logged"){
                 out << sis.logged();
             }
@@ -248,10 +285,10 @@ public:
             else if(op == "addLost" || op == "addFound"){
                 string category, description, lost_location;
                 /* cout << "Qual a categoria do bem?"; */
-                getline(in, category, ':');
+                getline(in, category, '|');
                 /* cout << "Descreva onde pode tê-lo perdido com palavras-chave"
                 << "\nex: cidade, bairro, rua, trajeto, instituição"; */
-                getline(in, lost_location, ':');
+                getline(in, lost_location, '|');
                 /* cout << "Como é este bem? tem algo que o torna único?"
                 << "\nex: cor, tamanho, marca, modelo, raça, avaria"; */
                 getline(in, description);
@@ -261,8 +298,16 @@ public:
                     sis.addFound(to_string(cont), category, description, lost_location);
                 cont++;
             }
-            else if(op == "showAll"){
-                out << sis.showAll();
+            else if(op == "match"){
+                sis.match();
+            }
+            else if(op == "matchFound"){
+                string id;
+                in >> id;
+                out << sis.matchFound(id);
+            }
+            else if(op == "showItens"){
+                out << sis.showItens();
             }
             else if(op == "showLost"){
                 out << sis.showLost();
@@ -270,14 +315,15 @@ public:
             else if(op == "showFound"){
                 out << sis.showFound();
             }
-            else if(op == "match"){
-                sis.match();
+            else if(op == "showPlaces"){
+                string locale;
+                getline(in, locale);
+                out << sis.showPlaces(locale);
             }
-            else if(op == "matchFound"){ //_idItem
-                string id;
-                in >> id;
-                out << sis.matchFound(id);
-            }
+            else if(op == "showAllPlaces"){
+                string locale, aux;
+                out << sis.showAllPlaces();
+            }            
             else
                 cout << "comando invalido" << endl;
         }
@@ -296,12 +342,15 @@ public:
 				if(line == "manual")
 					while(line != "end"){
 						getline(cin, line);
-						cout << shell(line) << endl;
+                        cout << shell(line) << endl;
 					}
 				else if(line == "end")
 					break;
 				cout << "$" << line << endl;
-				cout << shell(line) + "\n" << endl;
+                if(shell(line) != "")
+				    cout << shell(line) + "\n\n";
+                else
+                    cout << "\n";
 			}
 			arquivo.close();
 		} else
@@ -332,6 +381,8 @@ main(){
     5. Validar o match;
 
     6. Iniciar chat.
+
+    7. Reconhecimento por imagem
 
     DÚVIDAS
     1. quem deve guardar a compatibilidade? um map ou o próprio item? (criar uma classe MatchCompare).

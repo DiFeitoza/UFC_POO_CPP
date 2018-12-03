@@ -1,6 +1,39 @@
 #include <iostream>
 using namespace std;
 
+int main(){
+    string text {"eu amo arroz"}, a {"arroz"}, b {"love"};
+    if(text.find(a) != string::npos)
+        cout << "achei " + a;
+    if(text.find(b) != string::npos)
+        cout << "achei " + b;
+    return 0;
+}
+
+/* int main () {
+    setlocale(LC_ALL, "portuguese");
+    unsigned int cp = 1252;
+
+    //Respaldo do codepage original da consola
+    unsigned int cpIn  = GetConsoleCP();
+    unsigned int cpOut = GetConsoleOutputCP(); 
+
+    cout << "anãoção çãao õ" << endl;
+    //Estabelecendo o codepage de saída para 1252(latin2).
+    SetConsoleOutputCP(cp);
+    cout << "anãoção çãao õ" << endl;
+
+    //Estabelecendo o codepage de Entrada para 1252(latin2).
+    SetConsoleCP(cp);
+    cout << "anãoção çãao õ" << endl;
+
+    SetConsoleCP(cpIn);
+    SetConsoleOutputCP(cpOut);
+
+    return 0;
+} */
+
+
 // OK
 /* class Var{
 public:
