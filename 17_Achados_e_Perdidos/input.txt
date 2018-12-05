@@ -1,30 +1,36 @@
-addUser gigante isavelethiliana
-addUser pequeno jerry123
-addUser pacman comecome123
+addUser gigante g123
+addUser pacman pc123
 addPlace UFC|qx2018|07.272.636/0001-31|Av. Cedro Livre, Quixada, Ceara, Brasil|(85) 3366 7301
-login gigante isavelethiliana
-changePass isavelethiliana tom123
+showPlaces Quixada
+showPlaces Estados Unidos
+showAllPlaces
+login gigante g123
+changePass g123 g456
 logout
-login gigante tom123
+login gigante g456
 addLost Notebook 14"|Quixada, Campus UFC, Restaurante Universitario.|Marca Asus, Cor Azul, Novo, com capa.
 addFound Estojo|Quixada, Campus UFC, Espaco de convivencia.|Marca tilibra, Cor preto, canetas, fone de ouvido.
 showItens
 logout
-login pequeno jerry123
-addLost Bicicleta|Quixada, Campus UFC, Estacionamento.|Marca Monark, Cor Vermelha, Tipo Carga.
-addFound Notebook|Quixada, UFC, Restaurante Universitario.|Asus, Azul e Dourado, Adesivos.
-rmUser jerry123
-logged
-login pequeno jerry123
-login pacman comecome123
+login pacman pc123
 addLost Bicicleta|Quixada, Campus UFC, Estacionamento.|Marca Monark, Cor Vermelha, Tipo Carga.
 addFound Notebook|Quixada, UFC, Restaurante Universitario.|Asus, Azul e Dourado, Adesivos.
 match
 showFound
-matchFound 5
+matchFound 3
+giveBack 3 gigante
+showFound
+logout
+login gigante g456
+showLost
+checkGiveBack 0
+showLost
+logout
+login pacman pc123
+showFound
 logout
 login UFC qx2018
-showPlaces Quixada
-showPlaces Estados Unidos
-showAllPlaces
+logged
+rmUser qx2018
+login UFC qx2018
 manual

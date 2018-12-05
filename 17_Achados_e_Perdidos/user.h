@@ -1,7 +1,7 @@
 #ifndef USER_H_
 #define USER_H_
 
-#include <iostream>
+#include <sstream>
 #include <vector>
 #include "thing.h"
 
@@ -28,6 +28,12 @@ public:
                 return found;
         throw "indice nao existe";
     }
+    virtual Thing* getLost(string id){
+        for(auto &lost : v_lost)
+            if(id == lost->getId())
+                return lost;
+        throw "indice nao existe";
+    }    
     virtual bool verifyPass(string pass){
         return this->pass == pass;
     }

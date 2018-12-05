@@ -9,11 +9,11 @@ using namespace std;
 
 class Thing{
 protected:
-	string id, category, where_found, description;
+	string id, category, where_found, description, twin {""}, status {"Aguardando"};
 	vector<string> v_matches;
-	User ** owner = nullptr;
+	User * owner = nullptr;
 public:
-	Thing(string id, string cat, string where, string desc, User ** own)
+	Thing(string id, string cat, string where, string desc, User * own)
 		: id(id), category(cat), where_found(where), description(desc), owner(own){}
 
 	virtual string getId() = 0;
@@ -22,13 +22,16 @@ public:
 	virtual string getDescription() = 0;
 	virtual vector<string> getMatches() = 0;
 	virtual User * getOwner() = 0;
+	virtual string getTwin() = 0;
 	virtual void setMatch(string match_id) = 0;
+	virtual void setStatus(string status) = 0;
+	virtual void setTwin(string id) = 0;
 	virtual string toString() = 0;
 };
 
 class BemMaterial : public Thing{
 public:
-	BemMaterial(string id, string cat, string where, string desc, User** own)
+	BemMaterial(string id, string cat, string where, string desc, User * own)
 		: Thing(id, cat, where, desc, own){}
 
 	virtual string getId(){	return id; }
@@ -36,18 +39,26 @@ public:
 	virtual string getWhereFound(){ return where_found; }
 	virtual string getDescription(){ return description; }
 	virtual vector<string> getMatches(){ return v_matches; }
-	virtual User * getOwner(){ return *owner; }
+	virtual User * getOwner(){ return owner; }
+	virtual string getTwin(){ return twin; }
 
 	virtual void setMatch(string match_id){
 		v_matches.push_back(match_id);
 	}
+	virtual void setStatus(string status){
+		this->status = status;
+	}
+	virtual void setTwin(string id){
+		this->twin = id;
+	}	
 
 	virtual string toString(){
 		stringstream ss;
 		ss << "  id: " + id + "\n"
 		+ "  Categoria: " + category + "\n"
 		+ "  Descricao: " + description + "\n"
-		+ "  Localizado: " + where_found;
+		+ "  Localizado: " + where_found + "\n"
+		+ "  Status: " + status;
 		return ss.str();
 	}
 };

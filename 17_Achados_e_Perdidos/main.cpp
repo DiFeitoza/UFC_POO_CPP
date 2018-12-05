@@ -1,7 +1,7 @@
 #include <iostream>
 #include <algorithm>
-#include <sstream>
 #include <fstream>
+#include <sstream>
 #include <vector>
 #include <map>
 
@@ -137,14 +137,14 @@ public:
     void addLost(string id, string cat, string des, string loc){
         if(current == nullptr)
             throw "efetue login";
-        Thing * perdido = new BemMaterial(id, cat, loc, des, &current);
+        Thing * perdido = new BemMaterial(id, cat, loc, des, current);
         r_lost.add(id, perdido);
         current->addLost(perdido);
     }
     void addFound(string id, string cat, string des, string loc){
         if(current == nullptr)
             throw "efetue login";
-        Thing * achado = new BemMaterial(id, cat, loc, des, &current);
+        Thing * achado = new BemMaterial(id, cat, loc, des, current);
         r_found.add(id, achado);
         current->addFound(achado);
     }
@@ -213,6 +213,32 @@ public:
         }
         return ss.str();
     }
+    void giveBack(string id, string username){
+        if(current == nullptr)
+            throw "efetue login";
+        stringstream ss;
+        auto v_id_match = current->getFound(id)->getMatches();
+        if(v_id_match.empty())
+            throw "Ainda não encontramos o possível dono";
+        for(auto s_id_match : v_id_match)
+            if(username == r_lost.getT(s_id_match)->getOwner()->getId()){
+                r_lost.getT(s_id_match)->setStatus(current->getId() + " encontrou e quer devolver este item");
+                r_found.getT(id)->setStatus("Aguardando confirmacao de devolucao");
+                r_lost.getT(s_id_match)->setTwin(id);
+                return;
+            }
+        throw "username inserido nao corresponde a um match valido";
+    }
+    void checkGiveBack(string id){
+        if(current == nullptr)
+            throw "efetue login";
+        stringstream ss;
+        auto lost = current->getLost(id);
+        auto twin_found = r_found.getT(lost->getTwin());
+        lost->setStatus("Perdeu, Achou! Estamos felizes por ter encontrado!");
+        twin_found->setStatus("Perdeu, Achou! Obrigado, sua atitude faz a diferenca!");
+    }    
+
     string showItens(){
         if(current == nullptr)
             throw "efetue login";
@@ -305,6 +331,18 @@ public:
                 string id;
                 in >> id;
                 out << sis.matchFound(id);
+            }           
+            else if(op == "giveBack"){
+                string id, username;
+                in >> id >> username;
+                sis.giveBack(id, username);
+                out << "Aguardando confirmacao de devolucao!";
+            }
+            else if(op == "checkGiveBack"){
+                string id;
+                in >> id;
+                sis.checkGiveBack(id);
+                out << "Recebimento confirmado!";
             }
             else if(op == "showItens"){
                 out << sis.showItens();
@@ -364,23 +402,35 @@ main(){
 }
 
 /*
-    FALTA FAZER
-    1. Implementar data de encontro/perda do bem e de registro
-    com isso verificar a compatibilidade pela data primeiro
+    FALTA FAZER:
+    1. Implementar data de encontro/perda do bem e de registro.
+    com isso verificar a compatibilidade pela data primeiro.
     depois pelo tipo, pelo local, e por fim por caracteristicas.
-    Achar a melhor forma de comparar e fazer o match;
-
+    Achar a melhor forma de comparar e fazer o match.
     2. Quem cadastra perdido diz intervalo de perda, maximo quinze dias atras.
-
     3. Quem registra achado, automaticamente registra o dia do achado.
-
     4. Outras categorias, como os Pets (possuem nome e raça).
-
-    5. Validar o match;
-
     6. Iniciar chat.
+    7. Reconhecimento por imagem.
 
-    7. Reconhecimento por imagem
+    URGÊNCIAS:
+    2. Usuário pode excluir achado/perdido.
+
+    5. Validar o match.
+
+    3. Usuário pode solicitar transferência.
+    4. Usuário pode aceitar a transferência.
+
+    8. Usuário pode solicitar entrega.
+    9. Usuário pode confirmar entrega.
+
+    10. Status da coisa.
+
+    IMPORTANTE:
+    1. Registrar data e hora de registro da coisa.    
+    5. Usuário pode solicitar adicionar contato.
+    6. Usuário pode aceitar solicitação.
+    7. Usuário pode enviar mensagens.    
 
     DÚVIDAS
     1. quem deve guardar a compatibilidade? um map ou o próprio item? (criar uma classe MatchCompare).
